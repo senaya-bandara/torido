@@ -3,38 +3,46 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="bg-white text-slate-900">
+    <main className="bg-white text-slate-900 pt-16">
+      {/* NAVBAR */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Torido Logo"
+              width={160}
+              height={40}
+              className="h-9 w-auto"
+              priority
+            />
+          </div>
 
-<header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b border-slate-100">
-  <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <div className="flex items-center gap-3">
-      <Image src="/logo.png" alt="Logo" width={120} height={36} className="h-8 w-auto" />
-    </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <Link href="#products" className="hover:text-lime-600 transition">
+              T-Shirts
+            </Link>
+            <Link href="#faq" className="hover:text-lime-600 transition">
+              FAQ
+            </Link>
+            <Link href="#contact" className="hover:text-lime-600 transition">
+              Contact
+            </Link>
+          </nav>
+        </div>
+      </header>
 
-    <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
-      <Link href="#products" className="hover:text-slate-900">T-Shirts</Link>
-      <Link href="#faq" className="hover:text-slate-900">FAQ</Link>
-      <Link href="#contact" className="hover:text-slate-900">Contact</Link>
-    </nav>
-  </div>
-</header>
-
-
-      {/* HERO SECTION */}
-      <main className="bg-white text-slate-900 pt-16">
-      {/* Background Image */}
+      {/* HERO */}
+      <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
         <Image
           src="/hero.jpg"
           alt="Kids T-Shirt"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-[85%_center]"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-50% to-white/0" />
 
-        {/* Gradient Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-white/0" />
-
-        {/* Text Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-xl">
             <div className="inline-block mb-4 px-4 py-1 rounded-full bg-lime-100 text-sm text-slate-700">
@@ -43,7 +51,7 @@ export default function Home() {
 
             <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
               Premium kids t-shirts,
-              <br /> simple & comfy.
+              <br /> simple &amp; comfy.
             </h1>
 
             <p className="mt-4 text-slate-600">
@@ -60,26 +68,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTS SECTION */}
+      {/* PRODUCTS */}
       <section id="products" className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold mb-2">T-Shirts</h2>
-        <p className="text-slate-500 mb-8">
-          Minimal • White-first • Lime accents
-        </p>
+        <p className="text-slate-500 mb-8">Minimal • White-first • Lime accents</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {/* Product Card 1 */}
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
-              <Image
-                src="/product1.jpg"
-                alt="Dino Tee"
-                fill
-                className="object-cover object-[85%_center]"
-
-
-              />
+              <Image src="/product1.jpg" alt="Dino Smile Tee" fill className="object-cover" />
               <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
                 COD
               </div>
@@ -96,15 +93,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Product Card 2 */}
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
-              <Image
-                src="/product2.png"
-                alt="Unicorn Tee"
-                fill
-                className="object-cover"
-              />
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
               <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
                 COD
               </div>
@@ -120,10 +111,42 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="max-w-6xl mx-auto px-6 pb-16">
+        <h2 className="text-xl font-semibold mb-3">FAQ</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="rounded-2xl border border-slate-100 p-6">
+            <p className="font-medium mb-2">How do I pay?</p>
+            <p className="text-slate-600 text-sm">Cash on Delivery (COD) only.</p>
+          </div>
+          <div className="rounded-2xl border border-slate-100 p-6">
+            <p className="font-medium mb-2">Delivery time?</p>
+            <p className="text-slate-600 text-sm">We’ll confirm delivery after order.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer id="contact" className="border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm">
+          <div>
+            <p className="font-semibold mb-2">Torido</p>
+            <p className="text-slate-600">Minimal kidswear. Cash on delivery.</p>
+          </div>
+          <div>
+            <p className="font-semibold mb-2">Support</p>
+            <p className="text-slate-600">Delivery • COD • Exchanges</p>
+          </div>
+          <div>
+            <p className="font-semibold mb-2">Contact</p>
+            <p className="text-slate-600">WhatsApp: +94 …</p>
+            <p className="text-slate-600">Email: …</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
