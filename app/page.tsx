@@ -561,7 +561,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
@@ -580,7 +581,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
@@ -599,7 +601,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
@@ -618,7 +621,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
@@ -637,7 +641,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
@@ -655,7 +660,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
@@ -674,7 +680,8 @@ export default function Home() {
           <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
             <div className="relative h-80">
               <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
-              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-3 left-3 bg-[var(--primary)]
+ text-xs px-3 py-1 rounded-full">
                 COD
               </div>
             </div>
