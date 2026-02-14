@@ -5,9 +5,24 @@ export default function Home() {
   return (
     <main className="bg-white text-slate-900">
 
+<header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b border-slate-100">
+  <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div className="flex items-center gap-3">
+      <Image src="/logo.png" alt="Logo" width={120} height={36} className="h-8 w-auto" />
+    </div>
+
+    <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
+      <Link href="#products" className="hover:text-slate-900">T-Shirts</Link>
+      <Link href="#faq" className="hover:text-slate-900">FAQ</Link>
+      <Link href="#contact" className="hover:text-slate-900">Contact</Link>
+    </nav>
+  </div>
+</header>
+
+
       {/* HERO SECTION */}
-      <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
-        {/* Background Image */}
+      <main className="bg-white text-slate-900 pt-16">
+      {/* Background Image */}
         <Image
           src="/hero.jpg"
           alt="Kids T-Shirt"
@@ -17,7 +32,7 @@ export default function Home() {
         />
 
         {/* Gradient Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-white/0" />
 
         {/* Text Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
@@ -61,7 +76,9 @@ export default function Home() {
                 src="/product1.jpg"
                 alt="Dino Tee"
                 fill
-                className="object-cover"
+                className="object-cover object-[85%_center]"
+
+
               />
               <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
                 COD
