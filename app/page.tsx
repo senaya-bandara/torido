@@ -5,33 +5,58 @@ export default function Home() {
   return (
     <main className="bg-white text-slate-900 pt-16">
       {/* NAVBAR */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center">
-          <Image
-  src="/logo.png"
-  alt="Torido Logo"
-  width={220}
-  height={60}
-  className="h-12 w-auto"
-  priority
-/>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100">
+  <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
+    {/* Left: menu icon (mobile) */}
+    <button
+      className="md:hidden mr-4 p-2 rounded-lg hover:bg-slate-50"
+      aria-label="Open menu"
+    >
+      <span className="block w-5 h-[2px] bg-slate-900 mb-1" />
+      <span className="block w-5 h-[2px] bg-slate-900 mb-1" />
+      <span className="block w-5 h-[2px] bg-slate-900" />
+    </button>
 
-          </div>
+    {/* Left: Logo */}
+    <div className="flex items-center">
+      <Image
+        src="/logo.png"
+        alt="Torido"
+        width={240}
+        height={60}
+        className="h-10 md:h-11 w-auto object-contain"
+        priority
+      />
+    </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <Link href="#products" className="hover:text-lime-600 transition">
-              T-Shirts
-            </Link>
-            <Link href="#faq" className="hover:text-lime-600 transition">
-              FAQ
-            </Link>
-            <Link href="#contact" className="hover:text-lime-600 transition">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
+    {/* Center: Links */}
+    <nav className="hidden md:flex items-center gap-8 ml-10 text-sm font-medium tracking-wide text-slate-700">
+      <Link href="#products" className="hover:text-lime-600 transition">
+        T-Shirts
+      </Link>
+      <Link href="#faq" className="hover:text-lime-600 transition">
+        FAQ
+      </Link>
+      <Link href="#contact" className="hover:text-lime-600 transition">
+        Contact
+      </Link>
+    </nav>
+
+    {/* Right: Icons */}
+    <div className="ml-auto flex items-center gap-4">
+      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Search">
+        🔍
+      </button>
+      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Account">
+        👤
+      </button>
+      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Cart">
+        🛒
+      </button>
+    </div>
+  </div>
+</header>
+
 
       {/* HERO */}
       <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
