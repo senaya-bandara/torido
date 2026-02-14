@@ -7,12 +7,7 @@ export default function Home() {
   return (
     <main className="bg-white text-slate-900 pt-16">
       {/* NAVBAR */}
-      {/* TOP UTILITY BAR */}
-<div className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-soft)] border-b border-slate-200">
-  <div className="max-w-7xl mx-auto px-6 py-2 text-center text-[12px] tracking-wide text-slate-700">
-    Cash on Delivery • Islandwide Delivery • Easy Returns
-  </div>
-</div>
+    
 
 {/* NAVBAR */}
 <header className="fixed top-[34px] left-0 right-0 z-50 bg-white border-b border-slate-200">
@@ -72,58 +67,61 @@ export default function Home() {
   </div>
 </header>
 
-      {/* HERO */}
-<section className="relative w-full h-[72vh] min-h-[520px] overflow-hidden">
+     {/* HERO */}
+<section className="relative w-full h-[75vh] min-h-[540px] overflow-hidden">
   <Image
     src="/hero.jpg"
-    alt="Kids T-Shirt"
+    alt="Kids wearing Torido T-shirt"
     fill
     priority
     className="object-cover object-[98%_center]"
   />
 
-  {/* Optional: soft overlay for readability (very subtle) */}
-  <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-transparent" />
+  {/* Soft overlay for text readability */}
+  <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
 
   <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-    <div className="max-w-[600px]">
-      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1 rounded-full bg-[var(--bg-soft)] text-[12px] tracking-wide text-slate-700 border border-slate-200">
-        Cash on Delivery • Fast Delivery
-      </div>
+    <div className="max-w-[560px]">
 
-      <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05]">
-        Premium kids t-shirts
-        <span className="text-slate-500"> that feel</span> comfy.
+      {/* Headline */}
+      <h1 className="text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.05] text-slate-900">
+        Comfort made simple.
       </h1>
 
-      <p className="mt-4 text-slate-600 text-[15px] md:text-base">
-        We moved from wholesale to direct retail — same quality, better value.
+      {/* Supporting Line */}
+      <p className="mt-5 text-[17px] md:text-lg text-slate-600 font-medium leading-relaxed">
+        Premium cotton tees for kids — soft, safe, and built for play.
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-4">
+      {/* CTA Buttons */}
+      <div className="mt-7 flex flex-wrap gap-4">
         <Link
           href="#products"
-          className="h-12 px-6 inline-flex items-center justify-center rounded-2xl bg-[var(--primary)] text-slate-900 font-medium shadow-sm hover:shadow-md hover:translate-y-[-1px] transition"
+          className="h-12 px-7 inline-flex items-center justify-center rounded-2xl bg-[var(--primary)] text-slate-900 font-semibold shadow-sm hover:shadow-md hover:translate-y-[-1px] transition"
         >
           Shop T-Shirts
         </Link>
 
         <Link
           href="#size-guide"
-          className="h-12 px-6 inline-flex items-center justify-center rounded-2xl border border-slate-300 text-slate-900 font-medium hover:bg-slate-50 transition"
+          className="h-12 px-7 inline-flex items-center justify-center rounded-2xl border border-slate-300 text-slate-900 font-medium hover:bg-slate-50 transition"
         >
           View Size Guide
         </Link>
       </div>
 
-      <div className="mt-6 flex flex-wrap gap-6 text-sm text-slate-600">
-        <span>Soft cotton • Kid-safe prints</span>
+      {/* Micro Trust Row */}
+      <div className="mt-8 flex flex-wrap gap-6 text-sm text-slate-600">
+        <span>Soft cotton</span>
+        <span>Kid-safe prints</span>
         <span>COD + Fast delivery</span>
         <span>7-day exchange</span>
       </div>
+
     </div>
   </div>
 </section>
+
 
 {/* SHOP BY AGE */}
 <section className="bg-[var(--bg-soft)] border-y border-slate-100">
