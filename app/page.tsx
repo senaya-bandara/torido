@@ -8,7 +8,7 @@ export default function Home() {
     <main className="bg-white text-slate-900 pt-16">
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100">
-      <div className="max-w-6xl mx-auto pl-2 pr-6 h-16 flex items-center">
+      <div className="w-full pl-4 pr-6 h-16 flex items-center">
       {/* Left: menu icon (mobile) */}
     <button
       className="md:hidden mr-4 p-2 rounded-lg hover:bg-slate-50"
