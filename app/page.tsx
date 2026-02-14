@@ -7,89 +7,144 @@ export default function Home() {
   return (
     <main className="bg-white text-slate-900 pt-16">
       {/* NAVBAR */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100">
-      <div className="w-full pl-4 pr-6 h-16 flex items-center">
-      {/* Left: menu icon (mobile) */}
-    <button
-      className="md:hidden mr-4 p-2 rounded-lg hover:bg-slate-50"
-      aria-label="Open menu"
-    >
-      <span className="block w-5 h-[2px] bg-slate-900 mb-1" />
-      <span className="block w-5 h-[2px] bg-slate-900 mb-1" />
-      <span className="block w-5 h-[2px] bg-slate-900" />
-    </button>
+      {/* TOP UTILITY BAR */}
+<div className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-soft)] border-b border-slate-200">
+  <div className="max-w-7xl mx-auto px-6 py-2 text-center text-[12px] tracking-wide text-slate-700">
+    Cash on Delivery • Islandwide Delivery • Easy Returns
+  </div>
+</div>
 
+{/* NAVBAR */}
+<header className="fixed top-[34px] left-0 right-0 z-50 bg-white border-b border-slate-200">
+  <div className="max-w-7xl mx-auto pl-2 pr-6 h-16 flex items-center justify-between">
     {/* Left: Logo */}
-    <div className="flex items-center">
+    <Link href="/" className="flex items-center">
       <Image
         src="/logo.png"
         alt="Torido"
-        width={240}
-        height={60}
-        className="h-10 md:h-11 w-auto object-contain"
+        width={260}
+        height={80}
+        className="h-11 w-auto object-contain"
         priority
       />
-    </div>
+    </Link>
 
-    {/* Center: Links */}
-    <nav className="hidden md:flex items-center gap-10 ml-12 text-[13px] font-semibold tracking-[0.15em] uppercase text-slate-800">
-    <Link href="#products" className="hover:text-lime-600 transition">
+    {/* Center: Nav */}
+    <nav className="hidden md:flex items-center gap-10 text-[13px] font-semibold tracking-[0.18em] uppercase text-slate-900">
+      <Link href="#products" className="hover:text-[var(--primary)] transition">
         T-Shirts
       </Link>
-      <Link href="#faq" className="hover:text-lime-600 transition">
-        FAQ
+      <Link href="#new" className="hover:text-[var(--primary)] transition">
+        New
       </Link>
-      <Link href="#contact" className="hover:text-lime-600 transition">
-        Contact
+      <Link href="#best" className="hover:text-[var(--primary)] transition">
+        Best Sellers
+      </Link>
+      <Link href="#offers" className="hover:text-[var(--primary)] transition">
+        Offers
+      </Link>
+      <Link href="#faq" className="hover:text-[var(--primary)] transition">
+        FAQ
       </Link>
     </nav>
 
-    {/* Right: Icons */}
-    
-    <div className="ml-auto flex items-center gap-6">
-  <Search size={20} strokeWidth={1.5} className="text-slate-800 cursor-pointer" />
-  <User size={20} strokeWidth={1.5} className="text-slate-800 cursor-pointer" />
-  <ShoppingBag size={20} strokeWidth={1.5} className="text-slate-800 cursor-pointer" />
-</div>
+    {/* Right: Search + Icons */}
+    <div className="flex items-center gap-4">
+      <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-64 focus-within:ring-2 focus-within:ring-[var(--primary)]">
+        <Search size={18} strokeWidth={1.5} className="text-slate-500" />
+        <input
+          className="ml-2 w-full text-sm outline-none"
+          placeholder="Search tees, sizes, colors…"
+        />
+      </div>
 
+      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Account">
+        <User size={20} strokeWidth={1.5} className="text-slate-900" />
+      </button>
+
+      <button className="relative p-2 rounded-lg hover:bg-slate-50" aria-label="Cart">
+        <ShoppingBag size={20} strokeWidth={1.5} className="text-slate-900" />
+        <span className="absolute -top-1 -right-1 bg-[var(--coral)] text-white text-[10px] leading-none px-1.5 py-1 rounded-full">
+          0
+        </span>
+      </button>
+    </div>
   </div>
 </header>
 
-
       {/* HERO */}
-      <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
-        <Image
-          src="/hero.jpg"
-          alt="Kids T-Shirt"
-          fill
-          priority
-          className="object-cover object-[98%_center]"
-          />
+<section className="relative w-full h-[72vh] min-h-[520px] overflow-hidden">
+  <Image
+    src="/hero.jpg"
+    alt="Kids T-Shirt"
+    fill
+    priority
+    className="object-cover object-[98%_center]"
+  />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-xl">
-            <div className="inline-block mb-4 px-4 py-1 rounded-full bg-lime-100 text-sm text-slate-700">
-              Cash on Delivery • Fast Delivery
-            </div>
+  {/* Optional: soft overlay for readability (very subtle) */}
+  <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-transparent" />
 
-            <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-            Effortless style for your little ones.
-              <br /> simple &amp; comfy.
-            </h1>
+  <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
+    <div className="max-w-[600px]">
+      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1 rounded-full bg-[var(--bg-soft)] text-[12px] tracking-wide text-slate-700 border border-slate-200">
+        Cash on Delivery • Fast Delivery
+      </div>
 
-            <p className="mt-4 text-slate-600">
-              We moved from wholesale to direct retail — same quality, better value.
-            </p>
+      <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05]">
+        Premium kids t-shirts
+        <span className="text-slate-500"> that feel</span> comfy.
+      </h1>
 
-            <Link
-              href="#products"
-              className="inline-block mt-6 px-6 py-3 rounded-xl bg-lime-400 text-slate-900 font-medium hover:bg-lime-500 transition"
-            >
-              Shop Now
-            </Link>
-          </div>
-        </div>
-      </section>
+      <p className="mt-4 text-slate-600 text-[15px] md:text-base">
+        We moved from wholesale to direct retail — same quality, better value.
+      </p>
+
+      <div className="mt-6 flex flex-wrap gap-4">
+        <Link
+          href="#products"
+          className="h-12 px-6 inline-flex items-center justify-center rounded-2xl bg-[var(--primary)] text-slate-900 font-medium shadow-sm hover:shadow-md hover:translate-y-[-1px] transition"
+        >
+          Shop T-Shirts
+        </Link>
+
+        <Link
+          href="#size-guide"
+          className="h-12 px-6 inline-flex items-center justify-center rounded-2xl border border-slate-300 text-slate-900 font-medium hover:bg-slate-50 transition"
+        >
+          View Size Guide
+        </Link>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-6 text-sm text-slate-600">
+        <span>Soft cotton • Kid-safe prints</span>
+        <span>COD + Fast delivery</span>
+        <span>7-day exchange</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SHOP BY AGE */}
+<section className="bg-[var(--bg-soft)] border-y border-slate-100">
+  <div className="max-w-7xl mx-auto px-6 py-14">
+    <h2 className="text-xl font-semibold">Shop by Age</h2>
+    <p className="text-slate-600 text-sm mt-1">Quick access for parents.</p>
+
+    <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      {["0–12m","1–2y","3–4y","5–6y","7–8y","9–10y"].map((x) => (
+        <button
+          key={x}
+          className="h-12 rounded-2xl bg-white border border-slate-200 text-sm font-medium hover:border-[var(--primary)] hover:bg-white transition"
+        >
+          {x}
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* PRODUCTS */}
       <section id="products" className="max-w-6xl mx-auto px-6 py-16">
@@ -283,6 +338,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="best" className="max-w-7xl mx-auto px-6 pb-16">
+  <h2 className="text-xl font-semibold mb-2">Best Sellers</h2>
+  <p className="text-slate-500 mb-6 text-sm">Most loved picks.</p>
+  <div className="rounded-2xl border border-slate-100 p-8 text-slate-600">
+    Carousel coming next (we’ll build it after cart + product data).
+  </div>
+</section>
+
+<section id="new" className="max-w-7xl mx-auto px-6 pb-16">
+  <h2 className="text-xl font-semibold mb-2">New Arrivals</h2>
+  <p className="text-slate-500 mb-6 text-sm">Fresh drops.</p>
+  <div className="rounded-2xl border border-slate-100 p-8 text-slate-600">
+    New arrivals section coming next.
+  </div>
+</section>
+
 
       {/* FOOTER */}
       <footer id="contact" className="border-t border-slate-100">
