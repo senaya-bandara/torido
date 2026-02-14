@@ -88,7 +88,7 @@ export default function Home() {
         />
 
         {/* Brand tint overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#D9FBE6]/95 via-white/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-soft)] via-white/70 to-transparent" />
 
         {/* Subtle vignette for depth */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_55%,rgba(0,0,0,0.06)_100%)]" />
@@ -103,8 +103,8 @@ export default function Home() {
               Comfort made{" "}
               <span className="relative inline-block">
                 simple.
-                <span className="absolute left-0 -bottom-1 w-full h-2 bg-[#22C55E]/25 -z-10 rounded-md" />
-              </span>
+                <span className="absolute left-0 -bottom-1 w-full h-2 bg-[var(--primary)]/20 -z-10 rounded-md" />
+                </span>
             </h1>
 
             <p className="mt-5 text-base md:text-lg text-slate-600 leading-relaxed">
@@ -158,8 +158,8 @@ export default function Home() {
           {AGE_GROUPS.map((x) => (
             <button
               key={x}
-              className="h-12 rounded-2xl bg-white border border-slate-200 text-sm font-medium hover:border-[var(--primary)] hover:bg-slate-50 transition"
-            >
+              className="h-12 px-7 inline-flex items-center justify-center rounded-xl bg-[var(--primary)] text-white font-semibold shadow-sm hover:bg-[var(--primary-dark)] hover:shadow-md hover:-translate-y-0.5 transition-all"
+              >
               {x}
             </button>
           ))}
