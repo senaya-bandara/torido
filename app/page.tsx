@@ -8,14 +8,15 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Torido Logo"
-              width={160}
-              height={40}
-              className="h-9 w-auto"
-              priority
-            />
+          <Image
+  src="/logo.png"
+  alt="Torido Logo"
+  width={220}
+  height={60}
+  className="h-12 w-auto"
+  priority
+/>
+
           </div>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
@@ -39,9 +40,8 @@ export default function Home() {
           alt="Kids T-Shirt"
           fill
           priority
-          className="object-cover object-[85%_center]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-50% to-white/0" />
+          className="object-cover object-[98%_center]"
+          />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-xl">
