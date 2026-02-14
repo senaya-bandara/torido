@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Search, User, ShoppingBag } from "lucide-react";
+
 
 export default function Home() {
   return (
     <main className="bg-white text-slate-900 pt-16">
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100">
-  <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
-    {/* Left: menu icon (mobile) */}
+      <div className="max-w-6xl mx-auto pl-2 pr-6 h-16 flex items-center">
+      {/* Left: menu icon (mobile) */}
     <button
       className="md:hidden mr-4 p-2 rounded-lg hover:bg-slate-50"
       aria-label="Open menu"
@@ -30,8 +32,8 @@ export default function Home() {
     </div>
 
     {/* Center: Links */}
-    <nav className="hidden md:flex items-center gap-8 ml-10 text-sm font-medium tracking-wide text-slate-700">
-      <Link href="#products" className="hover:text-lime-600 transition">
+    <nav className="hidden md:flex items-center gap-10 ml-12 text-[13px] font-semibold tracking-[0.15em] uppercase text-slate-800">
+    <Link href="#products" className="hover:text-lime-600 transition">
         T-Shirts
       </Link>
       <Link href="#faq" className="hover:text-lime-600 transition">
@@ -43,17 +45,13 @@ export default function Home() {
     </nav>
 
     {/* Right: Icons */}
-    <div className="ml-auto flex items-center gap-4">
-      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Search">
-        🔍
-      </button>
-      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Account">
-        👤
-      </button>
-      <button className="p-2 rounded-lg hover:bg-slate-50" aria-label="Cart">
-        🛒
-      </button>
-    </div>
+    
+    <div className="ml-auto flex items-center gap-6">
+  <Search size={20} strokeWidth={1.5} className="text-slate-800 cursor-pointer" />
+  <User size={20} strokeWidth={1.5} className="text-slate-800 cursor-pointer" />
+  <ShoppingBag size={20} strokeWidth={1.5} className="text-slate-800 cursor-pointer" />
+</div>
+
   </div>
 </header>
 
