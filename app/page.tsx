@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Search, User, ShoppingBag } from "lucide-react";
+import { Leaf, ShieldCheck, Truck, RefreshCcw } from "lucide-react";
+
 
 
 export default function Home() {
@@ -74,7 +76,8 @@ export default function Home() {
     alt="Kids wearing Torido T-shirt"
     fill
     priority
-    className="object-cover object-[98%_center]"
+    className="object-cover object-[100%_center]"
+
   />
 
   {/* Soft overlay for text readability */}
@@ -83,23 +86,46 @@ export default function Home() {
   <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
     <div className="max-w-[560px]">
 
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_55%,rgba(0,0,0,0.06)_100%)]" />
+
+
+
+    <span className="inline-block mb-4 text-xs uppercase tracking-wider text-[var(--primary)] bg-[var(--primary)]/10 px-3 py-1 rounded-full border border-[var(--primary)]/15">
+  Everyday Essentials
+</span>
+
       {/* Headline */}
-      <h1 className="text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.05] text-slate-900">
-        Comfort made simple.
-      </h1>
+      <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-slate-900">
+  Comfort made{" "}
+  <span className="relative inline-block">
+    simple.
+    <span className="absolute left-0 -bottom-1 w-full h-2 bg-[var(--primary)]/25 -z-10 rounded-md" />
+  </span>
+</h1>
+
 
       {/* Supporting Line */}
-      <p className="mt-5 text-[17px] md:text-lg text-slate-600 font-medium leading-relaxed">
-        Premium cotton tees for kids — soft, safe, and built for play.
-      </p>
+      <p className="mt-5 text-base md:text-lg text-slate-600 leading-relaxed">
+  Premium cotton t-shirts designed for comfort, and everyday adventures.
+</p>
+
 
       {/* Micro Trust Row */}
-      <div className="mt-8 flex flex-wrap gap-6 text-sm text-slate-600">
-        <span>Soft cotton</span>
-        <span>Kid-safe prints</span>
-        <span>COD + Fast delivery</span>
-        <span>7-day exchange</span>
-      </div>
+      <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600">
+  <span className="inline-flex items-center gap-2">
+    <Leaf size={16} className="text-[var(--primary)]" /> Soft cotton
+  </span>
+  <span className="inline-flex items-center gap-2">
+    <ShieldCheck size={16} className="text-[var(--primary)]" /> Kid-safe prints
+  </span>
+  <span className="inline-flex items-center gap-2">
+    <Truck size={16} className="text-[var(--primary)]" /> Fast delivery
+  </span>
+  <span className="inline-flex items-center gap-2">
+    <RefreshCcw size={16} className="text-[var(--primary)]" /> 7-day exchange
+  </span>
+</div>
+
 
     </div>
   </div>
@@ -107,7 +133,7 @@ export default function Home() {
 
 
 {/* SHOP BY AGE */}
-<section className="bg-[var(--bg-soft)] border-y border-slate-100">
+<section id="products" className="bg-white max-w-7xl mx-auto px-6 py-16">
   <div className="max-w-7xl mx-auto px-6 py-14">
     <h2 className="text-xl font-semibold">Shop by Age</h2>
     <p className="text-slate-600 text-sm mt-1">Quick access for parents.</p>
