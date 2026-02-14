@@ -73,7 +73,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-              Premium kids t-shirts,
+            Effortless style for your little ones.
               <br /> simple &amp; comfy.
             </h1>
 
@@ -109,6 +109,138 @@ export default function Home() {
               <p className="mt-1 font-semibold">Rs 2,450</p>
               <Link
                 href="/product/dino-smile"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
+                className="text-sm mt-3 inline-block text-lime-600 hover:underline"
+              >
+                View details →
+              </Link>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden">
+            <div className="relative h-80">
+              <Image src="/product2.png" alt="Unicorn Dreams Tee" fill className="object-cover" />
+              <div className="absolute top-3 left-3 bg-lime-400 text-xs px-3 py-1 rounded-full">
+                COD
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-medium">Unicorn Dreams Tee</h3>
+              <p className="mt-1 font-semibold">Rs 2,300</p>
+              <Link
+                href="/product/unicorn-dreams"
                 className="text-sm mt-3 inline-block text-lime-600 hover:underline"
               >
                 View details →
