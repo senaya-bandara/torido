@@ -2,13 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, User, ShoppingBag, Leaf, ShieldCheck, Truck, RefreshCcw } from "lucide-react";
 
-const AGE_GROUPS = ["0–12m", "1–2y", "3–4y", "5–6y", "7–8y", "9–10y"];
 
 const PRODUCTS = [
   { id: "dino-smile", name: "Dino Smile Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "COD" },
   { id: "unicorn-dreams", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
   { id: "unicorn-dreams-2", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
 ];
+
+const BEST_SELLERS = [
+  { id: "best-1", name: "Dino Classic Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "BEST" },
+  { id: "best-2", name: "Unicorn Spark Tee", price: "Rs 2,300", image: "/product2.png", badge: "BEST" },
+  { id: "best-3", name: "Explorer Print Tee", price: "Rs 2,350", image: "/product1.jpg", badge: "BEST" },
+];
+
 
 export default function Home() {
   return (
@@ -94,7 +100,7 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_55%,rgba(0,0,0,0.06)_100%)]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-[580px]">
+          <div className="max-w-[620px]">
             <span className="inline-block mb-4 text-xs uppercase tracking-wider text-[var(--primary)] bg-[var(--primary)]/10 px-3 py-1 rounded-full border border-[var(--primary)]/15">
               Everyday Essentials
             </span>
@@ -111,23 +117,10 @@ export default function Home() {
               Premium cotton tees for kids — soft, safe, and built for play.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="#products"
-                className="h-12 px-7 inline-flex items-center justify-center rounded-xl bg-[var(--primary)] text-white font-semibold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
-              >
-                Shop T-Shirts
-              </Link>
-              <Link
-                href="#faq"
-                className="h-12 px-7 inline-flex items-center justify-center rounded-xl border border-slate-300 text-slate-900 font-medium hover:bg-slate-50 transition-all"
-              >
-                View Size Guide
-              </Link>
-            </div>
+          
 
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600">
-              <span className="inline-flex items-center gap-2">
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600">
+            <span className="inline-flex items-center gap-2">
                 <Leaf size={16} className="text-[var(--primary)]" /> Soft cotton
               </span>
               <span className="inline-flex items-center gap-2">
@@ -141,34 +134,15 @@ export default function Home() {
               </span>
             </div>
 
-            <p className="mt-5 text-sm text-slate-600">
-              <span className="font-semibold text-slate-900">Free delivery</span> above{" "}
-              <span className="font-semibold text-[var(--primary)]">Rs. 3,500</span>
-            </p>
+          
           </div>
         </div>
       </section>
 
-      {/* SHOP BY AGE */}
-      <section id="age" className="bg-white max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-xl font-semibold">Shop by Age</h2>
-        <p className="text-slate-600 text-sm mt-1">Quick access for parents.</p>
-
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {AGE_GROUPS.map((x) => (
-            <button
-              key={x}
-              className="h-12 px-7 inline-flex items-center justify-center rounded-xl bg-[var(--primary)] text-white font-semibold shadow-sm hover:bg-[var(--primary-dark)] hover:shadow-md hover:-translate-y-0.5 transition-all"
-              >
-              {x}
-            </button>
-          ))}
-        </div>
-      </section>
-
+     
       {/* PRODUCTS */}
-      <section id="products" className="bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <section id="products" className="bg-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
           <h2 className="text-2xl font-semibold mb-2">T-Shirts</h2>
           <p className="text-slate-500 mb-8">Minimal • White-first • Lime accents</p>
 
@@ -200,14 +174,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BEST SELLERS */}
-      <section id="best" className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-xl font-semibold mb-2">Best Sellers</h2>
-        <p className="text-slate-500 mb-6 text-sm">Most loved picks.</p>
-        <div className="rounded-2xl border border-slate-100 p-8 text-slate-600 bg-white">
-          Carousel coming next (we’ll build it after cart + product data).
+    {/* BEST SELLERS */}
+<section id="best" className="bg-slate-50">
+  <div className="max-w-7xl mx-auto px-6 py-16">
+    <h2 className="text-2xl font-semibold mb-2">Best Sellers</h2>
+    <p className="text-slate-500 mb-8 text-sm">
+      Our most loved pieces.
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {BEST_SELLERS.map((p) => (
+        <div
+          key={p.id}
+          className="group rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden"
+        >
+          <div className="relative h-80">
+            <Image
+              src={p.image}
+              alt={p.name}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
+              {p.badge}
+            </div>
+          </div>
+
+          <div className="p-5">
+            <h3 className="font-medium">{p.name}</h3>
+            <p className="mt-1 font-semibold">{p.price}</p>
+
+            <Link
+              href={`/product/${p.id}`}
+              className="text-sm mt-3 inline-block text-[var(--primary)] hover:underline"
+            >
+              View details →
+            </Link>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* NEW */}
       <section id="new" className="max-w-7xl mx-auto px-6 pb-16">
