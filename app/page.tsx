@@ -267,21 +267,20 @@ export default function Home() {
         </div>
       </section>
 
-     {/* FOOTER */}
-<footer
+      <footer
   id="contact"
   className="mt-20 bg-slate-100 border-t border-slate-200"
 >
-  <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12 text-sm">
+  <div className="max-w-7xl mx-auto px-6 py-14 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
     
     {/* Brand */}
-    <div>
+    <div className="text-center md:text-left">
       <h3 className="text-lg font-semibold text-slate-900">Torido</h3>
       <p className="mt-3 text-slate-600 leading-relaxed">
         Premium cotton kidswear designed for comfort, safety and everyday play.
       </p>
 
-      <div className="mt-6 flex gap-3">
+      <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
         <span className="text-xs bg-white border border-slate-200 px-3 py-1 rounded-full">
           COD Available
         </span>
@@ -292,9 +291,9 @@ export default function Home() {
     </div>
 
     {/* Support */}
-    <div>
+    <div className="text-center md:text-left">
       <h4 className="font-semibold text-slate-900 mb-4">Support</h4>
-      <ul className="space-y-3 text-slate-600">
+      <ul className="space-y-4 text-slate-600">
         <li className="hover:text-[#70B147] transition cursor-pointer">
           Delivery Information
         </li>
@@ -308,7 +307,7 @@ export default function Home() {
     </div>
 
     {/* Contact */}
-    <div>
+    <div className="text-center md:text-left">
       <h4 className="font-semibold text-slate-900 mb-4">Contact</h4>
 
       <p className="text-slate-600">
@@ -322,7 +321,7 @@ export default function Home() {
         </a>
       </p>
 
-      <p className="mt-3 text-slate-600">
+      <p className="mt-3 text-slate-600 break-words">
         Email:{" "}
         <a
           href="mailto:senayabandara@gmail.com"
