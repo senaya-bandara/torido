@@ -287,26 +287,26 @@ export default function Home() {
       </footer>
 
       {/* FLOATING WHATSAPP BUTTON */}
+{/* FLOATING WHATSAPP BUTTON */}
 <a
   href="https://wa.me/94770212644"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50 group"
 >
-<div className="w-14 h-14 flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300">    
-    {/* WhatsApp Icon SVG */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-      fill="currentColor"
-      className="w-5 h-5"
-    >
-      <path d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.82.737 5.582 2.14 8.02L.29 31.71l7.47-1.94a15.91 15.91 0 008.24 2.29c8.837 0 16-7.164 16-16.001C32 7.56 24.837.396 16 .396zm0 29.2c-2.64 0-5.217-.706-7.49-2.045l-.535-.32-4.43 1.15 1.18-4.317-.348-.557A13.576 13.576 0 012.8 16.396c0-7.297 5.903-13.2 13.2-13.2 7.296 0 13.2 5.903 13.2 13.2 0 7.296-5.904 13.2-13.2 13.2zm7.285-9.78c-.398-.2-2.355-1.16-2.72-1.292-.365-.133-.63-.2-.896.2-.266.398-1.03 1.292-1.264 1.558-.233.266-.466.3-.864.1-.398-.2-1.68-.62-3.2-1.975-1.18-1.05-1.976-2.346-2.21-2.744-.233-.398-.025-.613.175-.813.18-.18.398-.466.597-.7.2-.233.266-.4.398-.666.133-.266.066-.5-.033-.7-.1-.2-.896-2.164-1.23-2.964-.325-.78-.655-.673-.896-.685-.233-.012-.5-.014-.766-.014-.266 0-.7.1-1.064.5-.365.398-1.4 1.367-1.4 3.333 0 1.967 1.432 3.867 1.63 4.134.2.266 2.82 4.3 6.836 6.03.955.412 1.7.658 2.28.842.958.304 1.83.262 2.52.16.77-.115 2.355-.96 2.686-1.89.332-.93.332-1.727.232-1.89-.1-.166-.365-.266-.763-.466z" />
-    </svg>
-
-    <span className="text-sm font-semibold">Chat on WhatsApp</span>
+  <div className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 overflow-hidden bg-white flex items-center justify-center">
+    <Image
+      src="/whatsapp.avif"
+      alt="Chat on WhatsApp"
+      width={56}
+      height={56}
+      className="object-contain"
+      priority
+    />
   </div>
 </a>
     </main>
+
+
   );
 }
