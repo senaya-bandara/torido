@@ -286,25 +286,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* FLOATING WHATSAPP BUTTON */}
-{/* FLOATING WHATSAPP BUTTON */}
-<a
-  href="https://wa.me/94770212644"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 z-50 group"
->
-  <div className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 overflow-hidden bg-white flex items-center justify-center">
-    <Image
-      src="/whatsapp.avif"
-      alt="Chat on WhatsApp"
-      width={56}
-      height={56}
-      className="object-contain"
-      priority
-    />
-  </div>
-</a>
+      
     </main>
 
 
