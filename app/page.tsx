@@ -267,25 +267,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer id="contact" className="border-t border-slate-100 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm">
-          <div>
-            <p className="font-semibold mb-2">Torido</p>
-            <p className="text-slate-600">Minimal kidswear. Cash on delivery.</p>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">Support</p>
-            <p className="text-slate-600">Delivery • COD • Exchanges</p>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">Contact</p>
-            <p className="text-slate-600">WhatsApp: +94 769737089</p>
-            <p className="text-slate-600">Email: senayabandara@gmail.com</p>
-          </div>
-        </div>
-      </footer>
+     {/* FOOTER */}
+<footer
+  id="contact"
+  className="mt-20 bg-slate-100 border-t border-slate-200"
+>
+  <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12 text-sm">
+    
+    {/* Brand */}
+    <div>
+      <h3 className="text-lg font-semibold text-slate-900">Torido</h3>
+      <p className="mt-3 text-slate-600 leading-relaxed">
+        Premium cotton kidswear designed for comfort, safety and everyday play.
+      </p>
 
+      <div className="mt-6 flex gap-3">
+        <span className="text-xs bg-white border border-slate-200 px-3 py-1 rounded-full">
+          COD Available
+        </span>
+        <span className="text-xs bg-white border border-slate-200 px-3 py-1 rounded-full">
+          Islandwide Delivery
+        </span>
+      </div>
+    </div>
+
+    {/* Support */}
+    <div>
+      <h4 className="font-semibold text-slate-900 mb-4">Support</h4>
+      <ul className="space-y-3 text-slate-600">
+        <li className="hover:text-[#70B147] transition cursor-pointer">
+          Delivery Information
+        </li>
+        <li className="hover:text-[#70B147] transition cursor-pointer">
+          Exchanges & Returns
+        </li>
+        <li className="hover:text-[#70B147] transition cursor-pointer">
+          Size Guide
+        </li>
+      </ul>
+    </div>
+
+    {/* Contact */}
+    <div>
+      <h4 className="font-semibold text-slate-900 mb-4">Contact</h4>
+
+      <p className="text-slate-600">
+        WhatsApp:{" "}
+        <a
+          href="https://wa.me/94769737089"
+          className="text-[#70B147] hover:underline"
+          target="_blank"
+        >
+          +94 76 973 7089
+        </a>
+      </p>
+
+      <p className="mt-3 text-slate-600">
+        Email:{" "}
+        <a
+          href="mailto:senayabandara@gmail.com"
+          className="text-[#70B147] hover:underline"
+        >
+          senayabandara@gmail.com
+        </a>
+      </p>
+
+      <p className="mt-6 text-xs text-slate-500">
+        © {new Date().getFullYear()} Torido. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
       
     </main>
 
