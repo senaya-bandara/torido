@@ -280,8 +280,8 @@ export default function Home() {
           </div>
           <div>
             <p className="font-semibold mb-2">Contact</p>
-            <p className="text-slate-600">WhatsApp: +94 …</p>
-            <p className="text-slate-600">Email: …</p>
+            <p className="text-slate-600">WhatsApp: +94 769737089</p>
+            <p className="text-slate-600">Email: senayabandara@gmail.com</p>
           </div>
         </div>
       </footer>
