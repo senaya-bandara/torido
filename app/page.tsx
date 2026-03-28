@@ -34,8 +34,8 @@ const BEST_SELLERS = [
 
 export default function Home() {
   return (
-    <main className="bg-white text-slate-900">
-      {/* NAVBAR */}
+<main className="text-slate-900">
+        {/* NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto pl-2 pr-6 h-16 flex items-center justify-between">
           {/* Left: Logo */}
@@ -106,7 +106,7 @@ export default function Home() {
           alt="Kids wearing Torido T-shirt"
           fill
           priority
-          className="object-cover object-[100%_center]"
+          className="object-cover object-[100%_center] theme-image"
         />
 
         {/* Brand tint overlay */}
@@ -166,8 +166,7 @@ export default function Home() {
             {PRODUCTS.map((p) => (
               <div
                 key={p.id}
-                className="rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden"
-              >
+                className="theme-card rounded-2xl transition overflow-hidden"  >
                 <div className="relative h-80">
                   <Image src={p.image} alt={p.name} fill className="object-cover" />
                   <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
@@ -191,7 +190,7 @@ export default function Home() {
       </section>
 
     {/* BEST SELLERS */}
-<section id="best" className="bg-slate-50">
+    <section id="best" className="theme-soft-section">
   <div className="max-w-7xl mx-auto px-6 py-16">
     <h2 className="text-2xl font-semibold mb-2">Best Sellers</h2>
     <p className="text-slate-500 mb-8 text-sm">

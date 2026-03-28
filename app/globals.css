@@ -4,18 +4,122 @@
   --primary: #70B147;          /* Torido logo green */
   --primary-dark: #5C963B;     /* hover/active */
   --primary-soft: #F0FAEA;     /* soft tint background */
-
-  --text: #0F172A;             /* ADD THIS */
+  --primary-softer: #F7FBF4;   /* extra soft background */
+  --text: #0F172A;
+  --muted: #64748B;
   --coral: #FB7185;
+  --border-soft: #E5E7EB;
 }
 
-html, body {
-  background: white;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(112, 177, 71, 0.07), transparent 22%),
+    radial-gradient(circle at top right, rgba(112, 177, 71, 0.05), transparent 18%),
+    linear-gradient(to bottom, #ffffff, #fcfdfb);
   color: var(--text);
 }
 
 * {
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(112, 177, 71, 0.22);
+  color: var(--text);
+}
+
+/* nice scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(112, 177, 71, 0.45);
+  border-radius: 999px;
+  border: 2px solid #f8fafc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(112, 177, 71, 0.65);
+}
+
+/* reusable section surfaces */
+.theme-soft-section {
+  background: linear-gradient(to bottom, #ffffff, var(--primary-softer));
+}
+
+.theme-green-tint {
+  background: linear-gradient(135deg, rgba(112, 177, 71, 0.08), rgba(255,255,255,0.7));
+}
+
+.theme-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.theme-card:hover {
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+/* elegant green divider line */
+.theme-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(112, 177, 71, 0.35),
+    transparent
+  );
+}
+
+/* branded input feel */
+input,
+textarea,
+select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(112, 177, 71, 0.7);
+  box-shadow: 0 0 0 4px rgba(112, 177, 71, 0.12);
+}
+
+/* professional button glow helper */
+.theme-button-shadow {
+  box-shadow: 0 8px 24px rgba(112, 177, 71, 0.22);
+}
+
+.theme-button-shadow:hover {
+  box-shadow: 0 12px 28px rgba(112, 177, 71, 0.28);
+}
+
+/* subtle image depth */
+.theme-image {
+  filter: saturate(1.02) contrast(1.01);
+}
+
+/* footer style helper */
+.theme-footer {
+  background:
+    linear-gradient(to bottom, #f8faf8, #eef6e8);
+  border-top: 1px solid rgba(112, 177, 71, 0.12);
+}
