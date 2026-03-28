@@ -7,7 +7,8 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { auth, db } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 
 export default function AccountPage() {
@@ -20,13 +21,11 @@ export default function AccountPage() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setSuccess("");
 
     try {
       if (mode === "signup") {
@@ -42,19 +41,37 @@ export default function AccountPage() {
           });
         }
 
-        setSuccess("Account created successfully.");
-
-        setFullName("");
-        setEmail("");
-        setPassword("");
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+          uid: userCredential.user.uid,
+          fullName: fullName.trim(),
+          email: email.trim(),
+          address: "",
+          contactNumber: "",
+          createdAt: new Date().toISOString(),
+        });
 
         router.push("/");
       } else {
-        await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-        setSuccess("Logged in successfully.");
-        setEmail("");
-        setPassword("");
+        const userDoc = await getDoc(doc(db, "users", userCredential.user.uid));
+        if (!userDoc.exists()) {
+          await setDoc(doc(db, "users", userCredential.user.uid), {
+            uid: userCredential.user.uid,
+            fullName:
+              userCredential.user.displayName ||
+              userCredential.user.email?.split("@")[0] ||
+              "",
+            email: userCredential.user.email || "",
+            address: "",
+            contactNumber: "",
+            createdAt: new Date().toISOString(),
+          });
+        }
 
         router.push("/");
       }
@@ -84,7 +101,6 @@ export default function AccountPage() {
             onClick={() => {
               setMode("signup");
               setError("");
-              setSuccess("");
             }}
             className={`flex-1 py-2 rounded-xl text-sm font-medium transition ${
               mode === "signup"
@@ -100,7 +116,6 @@ export default function AccountPage() {
             onClick={() => {
               setMode("login");
               setError("");
-              setSuccess("");
             }}
             className={`flex-1 py-2 rounded-xl text-sm font-medium transition ${
               mode === "login"
@@ -145,12 +160,6 @@ export default function AccountPage() {
           {error && (
             <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-xl">
               {error}
-            </p>
-          )}
-
-          {success && (
-            <p className="text-sm text-green-700 bg-green-50 px-4 py-3 rounded-xl">
-              {success}
             </p>
           )}
 

@@ -1,6 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, User, ShoppingBag, Leaf, ShieldCheck, Truck, RefreshCcw } from "lucide-react";
+import { Search, User as UserIcon, ShoppingBag, Leaf, ShieldCheck, Truck, RefreshCcw } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { onAuthStateChanged, signOut, User as FirebaseUser } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 
 const PRODUCTS = [
@@ -33,6 +37,32 @@ const BEST_SELLERS = [
 ];
 
 export default function Home() {
+
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+const [menuOpen, setMenuOpen] = useState(false);
+const accountRef = useRef<any>(null);
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+  return () => unsubscribe();
+}, []);
+
+useEffect(() => {
+  function handleClickOutside(event: MouseEvent) {
+    if (
+      accountRef.current &&
+      !accountRef.current.contains(event.target as Node)
+    ) {
+      setMenuOpen(false);
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
+
   return (
 <main className="text-slate-900">
         {/* NAVBAR */}
@@ -82,9 +112,59 @@ export default function Home() {
               />
             </div>
 
-            <Link href="/account" className="p-2 rounded-lg hover:bg-slate-50" aria-label="Account">
-  <User size={20} strokeWidth={1.5} className="text-slate-900" />
-</Link>
+            <div ref={accountRef} className="relative">
+  {user ? (
+    <>
+      <button
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-slate-50 transition"
+        aria-label="Account menu"
+      >
+        <span className="text-sm font-medium text-[var(--primary)]">
+          Hello, {user.displayName || user.email?.split("@")[0]}
+        </span>
+      </button>
+
+      {menuOpen && (
+        <div className="absolute right-0 mt-2 w-60 rounded-2xl border border-slate-200 bg-white shadow-lg p-2 z-50">
+          <Link
+            href="/account/settings"
+            className="block px-4 py-3 rounded-xl text-sm hover:bg-slate-50"
+            onClick={() => setMenuOpen(false)}
+          >
+            Account Settings
+          </Link>
+
+          <Link
+            href="/account/settings"
+            className="block px-4 py-3 rounded-xl text-sm hover:bg-slate-50"
+            onClick={() => setMenuOpen(false)}
+          >
+            Profile Details
+          </Link>
+
+          <button
+            onClick={async () => {
+              await signOut(auth);
+              setMenuOpen(false);
+            }}
+            className="w-full text-left px-4 py-3 rounded-xl text-sm text-red-500 hover:bg-red-50"
+          >
+            Logout
+          </button>
+        </div>
+      )}
+    </>
+  ) : (
+    <Link
+      href="/account"
+      className="p-2 rounded-lg hover:bg-slate-50"
+      aria-label="Account"
+    >
+      <UserIcon size={20} strokeWidth={1.5} className="text-slate-900" />
+    </Link>
+  )}
+</div>
 
             <button className="relative p-2 rounded-lg hover:bg-slate-50" aria-label="Cart">
               <ShoppingBag size={20} strokeWidth={1.5} className="text-slate-900" />
