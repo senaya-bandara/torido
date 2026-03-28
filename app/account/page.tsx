@@ -5,10 +5,14 @@ import Link from "next/link";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 
 export default function AccountPage() {
+  const router = useRouter();
+
   const [mode, setMode] = useState<"signup" | "login">("signup");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,16 +30,33 @@ export default function AccountPage() {
 
     try {
       if (mode === "signup") {
-        await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+        if (fullName.trim()) {
+          await updateProfile(userCredential.user, {
+            displayName: fullName.trim(),
+          });
+        }
+
         setSuccess("Account created successfully.");
+
         setFullName("");
         setEmail("");
         setPassword("");
+
+        router.push("/");
       } else {
         await signInWithEmailAndPassword(auth, email, password);
+
         setSuccess("Logged in successfully.");
         setEmail("");
         setPassword("");
+
+        router.push("/");
       }
     } catch (err: any) {
       setError(err?.message || "Something went wrong.");
@@ -73,6 +94,7 @@ export default function AccountPage() {
           >
             Sign Up
           </button>
+
           <button
             type="button"
             onClick={() => {
@@ -97,6 +119,7 @@ export default function AccountPage() {
               placeholder="Full Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
+              required
               className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[var(--primary)] outline-none"
             />
           )}

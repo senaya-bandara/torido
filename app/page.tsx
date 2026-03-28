@@ -82,7 +82,7 @@ export default function Home() {
               />
             </div>
 
-            <Link href="/account" className="p-2 rounded-lg hover:bg-slate-50">
+            <Link href="/account" className="p-2 rounded-lg hover:bg-slate-50" aria-label="Account">
   <User size={20} strokeWidth={1.5} className="text-slate-900" />
 </Link>
 
