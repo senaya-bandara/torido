@@ -100,8 +100,8 @@ export default function Home() {
       <div className="h-16" />
 
       {/* HERO */}
-      <section className="relative w-full h-[75vh] min-h-[540px] overflow-hidden">
-        <Image
+      <section className="relative w-full h-[68vh] min-h-[480px] overflow-hidden">     
+           <Image
           src="/hero.jpg"
           alt="Kids wearing Torido T-shirt"
           fill
@@ -110,7 +110,7 @@ export default function Home() {
         />
 
         {/* Brand tint overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-soft)] via-white/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-soft)] via-white/40 to-transparent" />
 
         {/* Subtle vignette for depth */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_55%,rgba(0,0,0,0.06)_100%)]" />
@@ -158,7 +158,7 @@ export default function Home() {
      
       {/* PRODUCTS */}
       <section id="products" className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-20">
           <h2 className="text-2xl font-semibold mb-2">T-Shirts</h2>
           <p className="text-slate-500 mb-8">Minimal • White-first • Lime accents</p>
 
@@ -201,8 +201,7 @@ export default function Home() {
       {BEST_SELLERS.map((p) => (
         <div
           key={p.id}
-          className="group rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden"
-        >
+          className="rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"        >
           <div className="relative h-80">
             <Image
               src={p.image}
