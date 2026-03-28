@@ -36,8 +36,8 @@ export default function Home() {
   return (
 <main className="text-slate-900">
         {/* NAVBAR */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto pl-2 pr-6 h-16 flex items-center justify-between">
+        <header className="theme-navbar fixed top-0 left-0 right-0 z-50">
+                  <div className="max-w-7xl mx-auto pl-2 pr-6 h-16 flex items-center justify-between">
           {/* Left: Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -51,7 +51,7 @@ export default function Home() {
           </Link>
 
           {/* Center: Nav */}
-          <nav className="hidden md:flex items-center gap-10 text-[13px] font-semibold tracking-[0.18em] uppercase text-slate-900">
+          <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em] uppercase text-slate-900">
             <Link href="#products" className="hover:text-[var(--primary)] transition">
               T-Shirts
             </Link>
@@ -100,66 +100,80 @@ export default function Home() {
       <div className="h-16" />
 
       {/* HERO */}
-      <section className="relative w-full h-[68vh] min-h-[480px] overflow-hidden">     
-           <Image
-          src="/hero.jpg"
-          alt="Kids wearing Torido T-shirt"
-          fill
-          priority
-          className="object-cover object-[100%_center] theme-image"
-        />
+      <section className="relative w-full h-[70vh] md:h-[78vh] min-h-[500px] overflow-hidden">
+  <Image
+    src="/hero.jpg"
+    alt="Kids wearing Torido T-shirt"
+    fill
+    priority
+    className="object-cover object-[100%_center] theme-image"
+  />
 
-        {/* Brand tint overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-soft)] via-white/40 to-transparent" />
+  <div className="absolute inset-0 theme-hero-overlay" />
 
-        {/* Subtle vignette for depth */}
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_55%,rgba(0,0,0,0.06)_100%)]" />
+  <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0)_48%,rgba(0,0,0,0.08)_100%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-[620px]">
-            <span className="inline-block mb-4 text-xs uppercase tracking-wider text-[var(--primary)] bg-[var(--primary)]/10 px-3 py-1 rounded-full border border-[var(--primary)]/15">
-              Everyday Essentials
-            </span>
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center">
+    <div className="max-w-[620px]">
+      <span className="inline-block mb-5 text-xs uppercase tracking-[0.22em] text-[var(--primary)] bg-white/70 px-4 py-2 rounded-full border border-[var(--primary)]/20 shadow-sm">
+        Everyday Essentials
+      </span>
 
-            <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-slate-900">
-              Comfort made{" "}
-              <span className="relative inline-block">
-                simple.
-                <span className="absolute left-0 -bottom-1 w-full h-2 bg-[var(--primary)]/20 -z-10 rounded-md" />
-                </span>
-            </h1>
+      <h1 className="text-4xl md:text-6xl font-bold tracking-[-0.04em] leading-[0.98] text-slate-950">
+        Comfort made{" "}
+        <span className="relative inline-block text-[var(--primary)]">
+          simple.
+          <span className="absolute left-0 -bottom-1 w-full h-3 bg-[var(--primary)]/18 -z-10 rounded-md" />
+        </span>
+      </h1>
 
-            <p className="mt-5 text-base md:text-lg text-slate-600 leading-relaxed">
-              Premium cotton tees for kids — soft, safe, and built for play.
-            </p>
+      <p className="mt-6 text-base md:text-xl text-slate-600 leading-relaxed max-w-[540px]">
+        Premium cotton tees for kids — soft, safe, and built for play.
+      </p>
 
-          
+      <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-700">
+        <span className="inline-flex items-center gap-2">
+          <Leaf size={16} className="text-[var(--primary)]" />
+          Soft cotton
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <ShieldCheck size={16} className="text-[var(--primary)]" />
+          Kid-safe prints
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <Truck size={16} className="text-[var(--primary)]" />
+          Fast delivery
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <RefreshCcw size={16} className="text-[var(--primary)]" />
+          7-day exchange
+        </span>
+      </div>
 
-            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600">
-            <span className="inline-flex items-center gap-2">
-                <Leaf size={16} className="text-[var(--primary)]" /> Soft cotton
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <ShieldCheck size={16} className="text-[var(--primary)]" /> Kid-safe prints
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Truck size={16} className="text-[var(--primary)]" /> Fast delivery
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <RefreshCcw size={16} className="text-[var(--primary)]" /> 7-day exchange
-              </span>
-            </div>
-
-          
-          </div>
-        </div>
-      </section>
+      <div className="mt-7">
+        <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-4 py-2 text-sm shadow-md">
+          Loved by parents across Sri Lanka
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
      
       {/* PRODUCTS */}
       <section id="products" className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20">
-          <h2 className="text-2xl font-semibold mb-2">T-Shirts</h2>
+      <div className="mb-10">
+  <p className="text-xs uppercase tracking-[0.22em] text-[var(--primary)] mb-3">
+    Shop
+  </p>
+  <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.03em] text-slate-950">
+    T-Shirts
+  </h2>
+  <p className="text-slate-600 mt-2">
+    Minimal, comfortable, and designed for everyday wear.
+  </p>
+</div>
           <p className="text-slate-500 mb-8">Minimal • White-first • Lime accents</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
