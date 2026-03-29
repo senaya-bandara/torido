@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Search } from "lucide-react";
 import { useState } from "react";
 
 import Navbar from "@/app/components/Navbar";
@@ -26,51 +25,38 @@ export default function Home() {
 
       <main className="pt-20 text-slate-900">
 
-        {/* SEARCH BAR */}
-        <div className="max-w-7xl mx-auto px-6 mt-6">
-          <div className="flex items-center border border-slate-200 rounded-xl px-3 py-2 w-full md:w-96 focus-within:ring-2 focus-within:ring-[var(--primary)]">
-            <Search size={18} className="text-slate-500" />
-            <input
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  setSubmittedSearch(searchInput.trim());
-                }
-              }}
-              placeholder="Search tees..."
-              className="ml-2 w-full text-sm outline-none"
-            />
-          </div>
-        </div>
+        
 
         {/* HERO (hide when searching) */}
-        {!isSearching && (
-          <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-[var(--primary)] mb-4">
-                Everyday Essentials
-              </p>
+{!isSearching && (
+  <section className="relative w-full h-[70vh] min-h-[520px] overflow-hidden">
+    <Image
+      src="/hero.jpg"
+      alt="Hero"
+      fill
+      priority
+      className="object-cover object-[100%_center]"
+    />
 
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Comfort made <span className="text-[var(--primary)]">simple.</span>
-              </h1>
+    <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-soft)] via-white/60 to-transparent" />
 
-              <p className="mt-4 text-slate-600">
-                Premium cotton tees for kids — soft, safe, and built for play.
-              </p>
-            </div>
+    <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
+      <div className="max-w-[620px]">
+        <p className="text-xs tracking-[0.2em] uppercase text-[var(--primary)] mb-4">
+          Everyday Essentials
+        </p>
 
-            <div className="relative h-[400px]">
-              <Image
-                src="/hero.jpg"
-                alt="Hero"
-                fill
-                className="object-cover rounded-2xl"
-              />
-            </div>
-          </section>
-        )}
+        <h1 className="text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900">
+          Comfort made <span className="text-[var(--primary)]">simple.</span>
+        </h1>
+
+        <p className="mt-4 text-slate-600 text-base md:text-lg">
+          Premium cotton tees for kids — soft, safe, and built for play.
+        </p>
+      </div>
+    </div>
+  </section>
+)}
 
         {/* PRODUCTS / SEARCH RESULTS */}
         <section className="max-w-7xl mx-auto px-6 py-12">
