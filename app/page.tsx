@@ -67,114 +67,110 @@ useEffect(() => {
 <main className="text-slate-900">
         {/* NAVBAR */}
         <header className="theme-navbar fixed top-0 left-0 right-0 z-50">
-                  <div className="max-w-7xl mx-auto pl-2 pr-6 h-16 flex items-center justify-between">
-          {/* Left: Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Torido"
-              width={260}
-              height={80}
-              className="h-11 w-auto object-contain"
-              priority
-            />
-          </Link>
+  <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
+    {/* Left: Logo */}
+    <div className="flex shrink-0 items-center min-w-[220px]">
+      <Link href="/" className="flex items-center">
+        <Image
+          src="/logo.png"
+          alt="Torido"
+          width={220}
+          height={70}
+          className="h-10 w-auto object-contain"
+          priority
+        />
+      </Link>
+    </div>
 
-          {/* Center: Nav */}
-          <nav className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.22em] uppercase text-slate-900">
-            <Link href="#products" className="hover:text-[var(--primary)] transition">
-              T-Shirts
-            </Link>
-            <Link href="#new" className="hover:text-[var(--primary)] transition">
-              New
-            </Link>
-            <Link href="#best" className="hover:text-[var(--primary)] transition">
-              Best Sellers
-            </Link>
-            <Link href="#offers" className="hover:text-[var(--primary)] transition">
-              Offers
-            </Link>
-            <Link href="#faq" className="hover:text-[var(--primary)] transition">
-              FAQ
-            </Link>
-            <Link href="#contact" className="hover:text-[var(--primary)] transition">
-              Contact
-            </Link>
-          </nav>
+    {/* Center: Nav */}
+    <div className="flex flex-1 justify-center">
+      <nav className="hidden md:flex items-center gap-8 whitespace-nowrap text-[12px] font-bold tracking-[0.14em] uppercase text-slate-900">
+        <Link href="#products" className="hover:text-[var(--primary)] transition">
+          T-Shirts
+        </Link>
+        <Link href="#new" className="hover:text-[var(--primary)] transition">
+          New
+        </Link>
+        <Link href="#best" className="hover:text-[var(--primary)] transition">
+          Best Sellers
+        </Link>
+        <Link href="#offers" className="hover:text-[var(--primary)] transition">
+          Offers
+        </Link>
+        <Link href="#faq" className="hover:text-[var(--primary)] transition">
+          FAQ
+        </Link>
+        <Link href="#contact" className="hover:text-[var(--primary)] transition">
+          Contact
+        </Link>
+      </nav>
+    </div>
 
-          {/* Right: Search + Icons */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-64 focus-within:ring-2 focus-within:ring-[var(--primary)]">
-              <Search size={18} strokeWidth={1.5} className="text-slate-500" />
-              <input
-                className="ml-2 w-full text-sm outline-none placeholder:text-slate-400"
-                placeholder="Search tees, sizes, colors…"
-              />
-            </div>
+    {/* Right: Search + Account */}
+    <div className="flex shrink-0 items-center justify-end gap-4 min-w-[360px]">
+      <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-56 focus-within:ring-2 focus-within:ring-[var(--primary)]">
+        <Search size={18} strokeWidth={1.5} className="text-slate-500" />
+        <input
+          className="ml-2 w-full text-sm outline-none placeholder:text-slate-400"
+          placeholder="Search tees, sizes, colors..."
+        />
+      </div>
 
-            <div ref={accountRef} className="relative">
-  {user ? (
-    <>
-      <button
-        onClick={() => setMenuOpen((prev) => !prev)}
-        className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-slate-50 transition"
-        aria-label="Account menu"
-      >
-        <span className="text-sm font-medium text-[var(--primary)]">
-          Hello, {user.displayName || user.email?.split("@")[0]}
-        </span>
-      </button>
-
-      {menuOpen && (
-        <div className="absolute right-0 mt-2 w-60 rounded-2xl border border-slate-200 bg-white shadow-lg p-2 z-50">
-          <Link
-            href="/account/settings"
-            className="block px-4 py-3 rounded-xl text-sm hover:bg-slate-50"
-            onClick={() => setMenuOpen(false)}
-          >
-            Account Settings
-          </Link>
-
-          <Link
-            href="/account/settings"
-            className="block px-4 py-3 rounded-xl text-sm hover:bg-slate-50"
-            onClick={() => setMenuOpen(false)}
-          >
-            Profile Details
-          </Link>
-
-          <button
-            onClick={async () => {
-              await signOut(auth);
-              setMenuOpen(false);
-            }}
-            className="w-full text-left px-4 py-3 rounded-xl text-sm text-red-500 hover:bg-red-50"
-          >
-            Logout
-          </button>
-        </div>
-      )}
-    </>
-  ) : (
-    <Link
-      href="/account"
-      className="p-2 rounded-lg hover:bg-slate-50"
-      aria-label="Account"
-    >
-      <UserIcon size={20} strokeWidth={1.5} className="text-slate-900" />
-    </Link>
-  )}
-</div>
-
-            <button className="relative p-2 rounded-lg hover:bg-slate-50" aria-label="Cart">
-              <ShoppingBag size={20} strokeWidth={1.5} className="text-slate-900" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] leading-none px-1.5 py-1 rounded-full">
-                0
+      <div ref={accountRef} className="relative">
+        {user ? (
+          <>
+            <button
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-slate-50 transition whitespace-nowrap"
+              aria-label="Account menu"
+            >
+              <span className="text-sm font-medium text-[var(--primary)]">
+                Hello, {user.displayName || user.email?.split("@")[0]}
               </span>
             </button>
-          </div>
-        </div>
-      </header>
+
+            {menuOpen && (
+              <div className="absolute right-0 mt-2 w-60 rounded-2xl border border-slate-200 bg-white shadow-lg p-2 z-50">
+                <Link
+                  href="/account/settings"
+                  className="block px-4 py-3 rounded-xl text-sm hover:bg-slate-50"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Account Settings
+                </Link>
+
+                <Link
+                  href="/account/settings"
+                  className="block px-4 py-3 rounded-xl text-sm hover:bg-slate-50"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Profile Details
+                </Link>
+
+                <button
+                  onClick={async () => {
+                    await signOut(auth);
+                    setMenuOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-3 rounded-xl text-sm text-red-500 hover:bg-red-50"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <Link
+            href="/account"
+            className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition whitespace-nowrap"
+          >
+            Account
+          </Link>
+        )}
+      </div>
+    </div>
+  </div>
+</header>
 
       {/* offset for fixed navbar */}
       <div className="h-16" />
