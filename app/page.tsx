@@ -8,7 +8,10 @@ import {
   ShieldCheck,
   Truck,
   RefreshCcw,
+  Menu,
+  X,
 } from "lucide-react";
+
 import { useEffect, useState, useRef } from "react";
 import {
   onAuthStateChanged,
@@ -159,6 +162,7 @@ export default function Home() {
   const accountRef = useRef<HTMLDivElement | null>(null);
   const productsRef = useRef<HTMLElement | null>(null);
   const isSearching = submittedSearch.trim() !== "";
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -266,6 +270,15 @@ export default function Home() {
             </nav>
           </div>
 
+          <button
+  type="button"
+  onClick={() => setMobileMenuOpen((prev) => !prev)}
+  className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100"
+  aria-label="Toggle menu"
+>
+  {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+</button>
+
           {/* Right: Search + Account */}
           <div className="flex shrink-0 items-center justify-end gap-4 min-w-[360px]">
             <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-56 focus-within:ring-2 focus-within:ring-[var(--primary)]">
@@ -342,6 +355,50 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+
+
+        {mobileMenuOpen && (
+  <div className="md:hidden border-t border-slate-200 bg-white px-6 py-4 shadow-sm">
+    <div className="flex flex-col gap-4 text-sm font-semibold uppercase tracking-[0.08em] text-slate-900">
+      <Link href="#products" onClick={() => setMobileMenuOpen(false)}>
+        T-Shirts
+      </Link>
+      <Link href="#new" onClick={() => setMobileMenuOpen(false)}>
+        New
+      </Link>
+      <Link href="#best" onClick={() => setMobileMenuOpen(false)}>
+        Best Sellers
+      </Link>
+      <Link href="#offers" onClick={() => setMobileMenuOpen(false)}>
+        Offers
+      </Link>
+      <Link href="#faq" onClick={() => setMobileMenuOpen(false)}>
+        FAQ
+      </Link>
+      <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
+        Contact
+      </Link>
+    </div>
+
+    <div className="mt-4 flex items-center border border-slate-200 rounded-xl px-3 py-2">
+      <Search size={18} strokeWidth={1.5} className="text-slate-500" />
+      <input
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSearchSubmit();
+            setMobileMenuOpen(false);
+          }
+        }}
+        className="ml-2 w-full text-sm outline-none placeholder:text-slate-400"
+        placeholder="Search tees..."
+      />
+    </div>
+  </div>
+)}
       </header>
 
       {/* offset for fixed navbar */}
