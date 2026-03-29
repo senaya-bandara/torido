@@ -209,8 +209,8 @@ export default function Home() {
     <main className="text-slate-900">
       {/* NAVBAR */}
       <header className="theme-navbar fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
-          {/* Left: Logo */}
+      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+                  {/* Left: Logo */}
           <div className="flex shrink-0 items-center min-w-[220px]">
             <Link
               href="/"
@@ -271,13 +271,12 @@ export default function Home() {
           </div>
 
           <button
-  type="button"
-  onClick={() => setMobileMenuOpen((prev) => !prev)}
-  className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100"
-  aria-label="Toggle menu"
->
-  {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-</button>
+    onClick={() => setMobileMenuOpen((prev) => !prev)}
+    className="md:hidden p-2 -mr-2"   // 👈 KEY FIX
+  >
+    {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+  </button>
+
 
           {/* Right: Search + Account */}
           <div className="flex shrink-0 items-center justify-end gap-4 min-w-[360px]">
@@ -420,49 +419,48 @@ export default function Home() {
     <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0)_48%,rgba(0,0,0,0.08)_100%)]" />
 
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center">
-      <div className="max-w-[620px]">
-        <span className="inline-block mb-5 text-xs uppercase tracking-[0.22em] text-[var(--primary)] bg-white/70 px-4 py-2 rounded-full border border-[var(--primary)]/20 shadow-sm">
-          Everyday Essentials
-        </span>
+  <div className="max-w-[320px] sm:max-w-[480px]">
+    
+    <span className="inline-block mb-4 text-[10px] tracking-[0.18em] text-[var(--primary)] bg-white/80 px-3 py-1.5 rounded-full border border-[var(--primary)]/20 shadow-sm">
+      Everyday Essentials
+    </span>
 
-        <h1 className="text-4xl md:text-6xl font-bold tracking-[-0.04em] leading-[0.98] text-slate-950">
-          Comfort made{" "}
-          <span className="relative inline-block text-[var(--primary)]">
-            simple.
-            <span className="absolute left-0 -bottom-1 w-full h-3 bg-[var(--primary)]/18 -z-10 rounded-md" />
-          </span>
-        </h1>
+    <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-slate-900">
+      Comfort made{" "}
+      <span className="text-[var(--primary)]">simple.</span>
+    </h1>
 
-        <p className="mt-6 text-base md:text-xl text-slate-600 leading-relaxed max-w-[540px]">
-          Premium cotton tees for kids — soft, safe, and built for play.
-        </p>
+    <p className="mt-4 text-sm sm:text-lg text-slate-600 leading-relaxed">
+      Premium cotton tees for kids — soft, safe, and built for play.
+    </p>
 
-        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-700">
-          <span className="inline-flex items-center gap-2">
-            <Leaf size={16} className="text-[var(--primary)]" />
-            Soft cotton
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <ShieldCheck size={16} className="text-[var(--primary)]" />
-            Kid-safe prints
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <Truck size={16} className="text-[var(--primary)]" />
-            Fast delivery
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <RefreshCcw size={16} className="text-[var(--primary)]" />
-            7-day exchange
-          </span>
-        </div>
-
-        <div className="mt-7">
-          <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-4 py-2 text-sm shadow-md">
-            Loved by parents across Sri Lanka
-          </span>
-        </div>
-      </div>
+    <div className="mt-5 flex flex-wrap gap-3 text-xs sm:text-sm text-slate-700">
+      <span className="flex items-center gap-1">
+        <Leaf size={14} className="text-[var(--primary)]" />
+        Soft cotton
+      </span>
+      <span className="flex items-center gap-1">
+        <ShieldCheck size={14} className="text-[var(--primary)]" />
+        Kid-safe prints
+      </span>
+      <span className="flex items-center gap-1">
+        <Truck size={14} className="text-[var(--primary)]" />
+        Fast delivery
+      </span>
+      <span className="flex items-center gap-1">
+        <RefreshCcw size={14} className="text-[var(--primary)]" />
+        7-day exchange
+      </span>
     </div>
+
+    <div className="mt-5">
+      <span className="inline-block rounded-full bg-slate-900 text-white px-4 py-2 text-xs sm:text-sm">
+        Loved by parents across Sri Lanka
+      </span>
+    </div>
+
+  </div>
+</div>
   </section>
 )}
 
