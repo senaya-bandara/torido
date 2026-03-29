@@ -1,132 +1,107 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
-import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
+import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
-  const [searchInput, setSearchInput] = useState("");
-  const [submittedSearch, setSubmittedSearch] = useState("");
+type UserProfile = {
+  fullName: string;
+  email: string;
+  address: string;
+  contactNumber: string;
+};
 
-  const filteredProducts = PRODUCTS.filter((p) =>
-    p.name.toLowerCase().includes(submittedSearch.toLowerCase())
-  );
+export default function ProfilePage() {
+  const router = useRouter();
 
-  const isSearching = submittedSearch.length > 0;
+  const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        router.push("/account");
+        return;
+      }
+
+      try {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setProfile({
+            fullName: data.fullName || user.displayName || "",
+            email: data.email || user.email || "",
+            address: data.address || "",
+            contactNumber: data.contactNumber || "",
+          });
+        } else {
+          setProfile({
+            fullName: user.displayName || "",
+            email: user.email || "",
+            address: "",
+            contactNumber: "",
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [router]);
+
+  if (loading) {
+    return (
+      <main className="max-w-4xl mx-auto px-6 py-10 text-slate-900">
+        <p>Loading profile...</p>
+      </main>
+    );
+  }
+
+  if (!profile) return null;
 
   return (
-    <main className="text-slate-900">
-      {/* HERO (hide when searching) */}
-      {!isSearching && (
-        <section className="relative w-full h-[70vh] min-h-[520px] overflow-hidden">
-          <Image
-            src="/hero.jpg"
-            alt="Hero"
-            fill
-            priority
-            className="object-cover object-[100%_center]"
-          />
+    <main className="max-w-4xl mx-auto px-6 py-10 text-slate-900">
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-3xl font-bold">Profile Details</h1>
+        <Link
+          href="/account/settings"
+          className="px-4 py-2 rounded-xl bg-[var(--primary)] text-white font-medium hover:bg-[var(--primary-dark)] transition"
+        >
+          Edit Profile
+        </Link>
+      </div>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-soft)] via-white/60 to-transparent" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-            <div className="max-w-[620px]">
-              <p className="text-xs tracking-[0.2em] uppercase text-[var(--primary)] mb-4">
-                Everyday Essentials
-              </p>
-
-              <h1 className="text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900">
-                Comfort made <span className="text-[var(--primary)]">simple.</span>
-              </h1>
-
-              <p className="mt-4 text-slate-600 text-base md:text-lg">
-                Premium cotton tees for kids — soft, safe, and built for play.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* PRODUCTS / SEARCH RESULTS */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-6">
-          {isSearching ? "Search Results" : "Products"}
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(isSearching ? filteredProducts : PRODUCTS).map((p) => (
-            <Link
-              key={p.id}
-              href={`/product/${p.id}`}
-              className="block rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
-            >
-              <div className="relative h-80">
-                <Image
-                  src={p.image}
-                  alt={p.name}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
-                  {p.badge}
-                </div>
-              </div>
-
-              <div className="p-5">
-                <h3 className="font-medium group-hover:text-[var(--primary)] transition">
-                  {p.name}
-                </h3>
-                <p className="font-semibold mt-1">{p.price}</p>
-
-                <span className="text-sm mt-3 inline-block text-[var(--primary)] group-hover:underline">
-                  View details →
-                </span>
-              </div>
-            </Link>
-          ))}
+      <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-8 space-y-6">
+        <div>
+          <p className="text-sm text-slate-500 mb-1">Full Name</p>
+          <p className="text-lg font-medium">{profile.fullName || "-"}</p>
         </div>
-      </section>
 
-      {/* BEST SELLERS (hide when searching) */}
-      {!isSearching && (
-        <section className="max-w-7xl mx-auto px-6 py-12">
-          <h2 className="text-2xl font-semibold mb-6">Best Sellers</h2>
+        <div>
+          <p className="text-sm text-slate-500 mb-1">Email Address</p>
+          <p className="text-lg font-medium">{profile.email || "-"}</p>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BEST_SELLERS.map((p) => (
-              <Link
-                key={p.id}
-                href={`/product/${p.id}`}
-                className="block rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
-              >
-                <div className="relative h-80">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
-                    {p.badge}
-                  </div>
-                </div>
+        <div>
+          <p className="text-sm text-slate-500 mb-1">Contact Number</p>
+          <p className="text-lg font-medium">{profile.contactNumber || "-"}</p>
+        </div>
 
-                <div className="p-5">
-                  <h3 className="font-medium group-hover:text-[var(--primary)] transition">
-                    {p.name}
-                  </h3>
-                  <p className="font-semibold mt-1">{p.price}</p>
-
-                  <span className="text-sm mt-3 inline-block text-[var(--primary)] group-hover:underline">
-                    View details →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+        <div>
+          <p className="text-sm text-slate-500 mb-1">Address</p>
+          <p className="text-lg font-medium whitespace-pre-line">
+            {profile.address || "-"}
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
