@@ -158,6 +158,7 @@ export default function Home() {
 
   const accountRef = useRef<HTMLDivElement | null>(null);
   const productsRef = useRef<HTMLElement | null>(null);
+  const isSearching = submittedSearch.trim() !== "";
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -346,65 +347,67 @@ export default function Home() {
       {/* offset for fixed navbar */}
       <div className="h-16" />
 
-      {/* HERO */}
-      <section className="relative w-full h-[70vh] md:h-[78vh] min-h-[500px] overflow-hidden">
-        <Image
-          src="/hero.jpg"
-          alt="Kids wearing Torido T-shirt"
-          fill
-          priority
-          className="object-cover object-[100%_center] theme-image"
-        />
+    {/* HERO */}
+{!isSearching && (
+  <section className="relative w-full h-[70vh] md:h-[78vh] min-h-[500px] overflow-hidden">
+    <Image
+      src="/hero.jpg"
+      alt="Kids wearing Torido T-shirt"
+      fill
+      priority
+      className="object-cover object-[100%_center] theme-image"
+    />
 
-        <div className="absolute inset-0 theme-hero-overlay" />
+    <div className="absolute inset-0 theme-hero-overlay" />
 
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0)_48%,rgba(0,0,0,0.08)_100%)]" />
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0)_48%,rgba(0,0,0,0.08)_100%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center">
-          <div className="max-w-[620px]">
-            <span className="inline-block mb-5 text-xs uppercase tracking-[0.22em] text-[var(--primary)] bg-white/70 px-4 py-2 rounded-full border border-[var(--primary)]/20 shadow-sm">
-              Everyday Essentials
-            </span>
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center">
+      <div className="max-w-[620px]">
+        <span className="inline-block mb-5 text-xs uppercase tracking-[0.22em] text-[var(--primary)] bg-white/70 px-4 py-2 rounded-full border border-[var(--primary)]/20 shadow-sm">
+          Everyday Essentials
+        </span>
 
-            <h1 className="text-4xl md:text-6xl font-bold tracking-[-0.04em] leading-[0.98] text-slate-950">
-              Comfort made{" "}
-              <span className="relative inline-block text-[var(--primary)]">
-                simple.
-                <span className="absolute left-0 -bottom-1 w-full h-3 bg-[var(--primary)]/18 -z-10 rounded-md" />
-              </span>
-            </h1>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-[-0.04em] leading-[0.98] text-slate-950">
+          Comfort made{" "}
+          <span className="relative inline-block text-[var(--primary)]">
+            simple.
+            <span className="absolute left-0 -bottom-1 w-full h-3 bg-[var(--primary)]/18 -z-10 rounded-md" />
+          </span>
+        </h1>
 
-            <p className="mt-6 text-base md:text-xl text-slate-600 leading-relaxed max-w-[540px]">
-              Premium cotton tees for kids — soft, safe, and built for play.
-            </p>
+        <p className="mt-6 text-base md:text-xl text-slate-600 leading-relaxed max-w-[540px]">
+          Premium cotton tees for kids — soft, safe, and built for play.
+        </p>
 
-            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-700">
-              <span className="inline-flex items-center gap-2">
-                <Leaf size={16} className="text-[var(--primary)]" />
-                Soft cotton
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <ShieldCheck size={16} className="text-[var(--primary)]" />
-                Kid-safe prints
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Truck size={16} className="text-[var(--primary)]" />
-                Fast delivery
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <RefreshCcw size={16} className="text-[var(--primary)]" />
-                7-day exchange
-              </span>
-            </div>
-
-            <div className="mt-7">
-              <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-4 py-2 text-sm shadow-md">
-                Loved by parents across Sri Lanka
-              </span>
-            </div>
-          </div>
+        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-700">
+          <span className="inline-flex items-center gap-2">
+            <Leaf size={16} className="text-[var(--primary)]" />
+            Soft cotton
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <ShieldCheck size={16} className="text-[var(--primary)]" />
+            Kid-safe prints
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <Truck size={16} className="text-[var(--primary)]" />
+            Fast delivery
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <RefreshCcw size={16} className="text-[var(--primary)]" />
+            7-day exchange
+          </span>
         </div>
-      </section>
+
+        <div className="mt-7">
+          <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-4 py-2 text-sm shadow-md">
+            Loved by parents across Sri Lanka
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 
       {/* PRODUCTS */}
       <section id="products" ref={productsRef} className="bg-white">
