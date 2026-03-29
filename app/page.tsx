@@ -19,8 +19,9 @@ import {
   User as FirebaseUser,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { PRODUCTS } from "@/lib/products";
-
+import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/footer";
 
 export default function Home() {
   const [user, setUser] = useState<FirebaseUser | null>(null);
