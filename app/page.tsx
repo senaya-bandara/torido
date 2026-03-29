@@ -36,6 +36,10 @@ const BEST_SELLERS = [
   { id: "best-9", name: "Explorer Print Tee", price: "Rs 2,350", image: "/product1.jpg", badge: "BEST" },
 ];
 
+const [searchTerm, setSearchTerm] = useState("");
+
+
+
 export default function Home() {
 
   const [user, setUser] = useState<FirebaseUser | null>(null);
@@ -111,9 +115,11 @@ useEffect(() => {
       <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-56 focus-within:ring-2 focus-within:ring-[var(--primary)]">
         <Search size={18} strokeWidth={1.5} className="text-slate-500" />
         <input
-          className="ml-2 w-full text-sm outline-none placeholder:text-slate-400"
-          placeholder="Search tees, sizes, colors..."
-        />
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="ml-2 w-full text-sm outline-none placeholder:text-slate-400"
+  placeholder="Search tees, sizes, colors..."
+/>
       </div>
 
       <div ref={accountRef} className="relative">
