@@ -65,60 +65,37 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {(isSearching ? filteredProducts : PRODUCTS).map((p) => (
-              <div
-                key={p.id}
-                className="rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                <div className="relative h-80">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
-                    {p.badge}
-                  </div>
-                </div>
+  {(isSearching ? filteredProducts : PRODUCTS).map((p) => (
+    <Link
+      key={p.id}
+      href={`/product/${p.id}`}
+      className="block rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+    >
+      <div className="relative h-80">
+        <Image
+          src={p.image}
+          alt={p.name}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
+          {p.badge}
+        </div>
+      </div>
 
-                <div className="p-5">
-                  <h3 className="font-medium">{p.name}</h3>
-                  <p className="font-semibold mt-1">{p.price}</p>
+      <div className="p-5">
+        <h3 className="font-medium group-hover:text-[var(--primary)] transition">
+          {p.name}
+        </h3>
+        <p className="font-semibold mt-1">{p.price}</p>
 
-                  <Link
-  href={`/product/${p.id}`}
-  className="block rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden group"
->
-  <div className="relative h-80">
-    <Image
-      src={p.image}
-      alt={p.name}
-      fill
-      className="object-cover transition-transform duration-300 group-hover:scale-105"
-    />
-
-    <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
-      {p.badge}
-    </div>
-  </div>
-
-  <div className="p-5">
-    <h3 className="font-medium group-hover:text-[var(--primary)] transition">
-      {p.name}
-    </h3>
-
-    <p className="mt-1 font-semibold">{p.price}</p>
-
-    <span className="text-sm mt-3 inline-block text-[var(--primary)] group-hover:underline">
-      View details →
-    </span>
-  </div>
-</Link>
-                </div>
-              </div>
-            ))}
-          </div>
+        <span className="text-sm mt-3 inline-block text-[var(--primary)] group-hover:underline">
+          View details →
+        </span>
+      </div>
+    </Link>
+  ))}
+</div>
         </section>
 
         {/* BEST SELLERS (hide when searching) */}
@@ -127,27 +104,37 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-6">Best Sellers</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {BEST_SELLERS.map((p) => (
-                <div
-                  key={p.id}
-                  className="rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                >
-                  <div className="relative h-80">
-                    <Image
-                      src={p.image}
-                      alt={p.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+  {(isSearching ? filteredProducts : PRODUCTS).map((p) => (
+    <Link
+      key={p.id}
+      href={`/product/${p.id}`}
+      className="block rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+    >
+      <div className="relative h-80">
+        <Image
+          src={p.image}
+          alt={p.name}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
+          {p.badge}
+        </div>
+      </div>
 
-                  <div className="p-5">
-                    <h3 className="font-medium">{p.name}</h3>
-                    <p className="font-semibold mt-1">{p.price}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="p-5">
+        <h3 className="font-medium group-hover:text-[var(--primary)] transition">
+          {p.name}
+        </h3>
+        <p className="font-semibold mt-1">{p.price}</p>
+
+        <span className="text-sm mt-3 inline-block text-[var(--primary)] group-hover:underline">
+          View details →
+        </span>
+      </div>
+    </Link>
+  ))}
+</div>
           </section>
         )}
       </main>
