@@ -1,159 +1,67 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { useParams } from "next/navigation";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Image from "next/image";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/footer";
 import { PRODUCTS } from "@/lib/products";
 
-export default function ProductDetailPage() {
-  const params = useParams();
-  const id = params.id as string;
-
-  const product = useMemo(
-    () => PRODUCTS.find((p) => p.id === id),
-    [id]
-  );
-
-  const [selectedSize, setSelectedSize] = useState(
-    product?.sizes?.[0] || ""
-  );
-  const [quantity, setQuantity] = useState(1);
-
-  function handleAddToCart() {
-    if (!product) return;
-
-    const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-    const cartItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      size: selectedSize,
-      quantity,
-    };
-
-    existingCart.push(cartItem);
-    localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    window.dispatchEvent(new Event("cartUpdated"));
-    alert("Added to cart");
-  }
-
-  if (!product) {
-    return (
-      <>
-        <Navbar />
-        <main className="max-w-7xl mx-auto px-6 py-24">
-          <h1 className="text-2xl font-bold text-slate-900">Product not found</h1>
-          <p className="mt-3 text-slate-600">
-            The T-shirt you are looking for does not exist.
-          </p>
-          <Link
-            href="/"
-            className="inline-block mt-6 text-[var(--primary)] hover:underline"
-          >
-            ← Back to home
-          </Link>
-        </main>
-        <Footer />
-      </>
-    );
-  }
-
+export default function ProductPage() {
   return (
     <>
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-6 pt-28 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* Image */}
-          <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white">
-            <div className="relative aspect-square">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+      <main className="pt-24 pb-20 bg-white min-h-screen">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-[0.22em] text-[var(--primary)] mb-3">
+              Shop
+            </p>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.03em] text-slate-950">
+              All T-Shirts
+            </h1>
+            <p className="text-slate-600 mt-2">
+              Browse all Torido T-shirts in one place.
+            </p>
           </div>
 
-          {/* Details */}
-          <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-[var(--primary)] mb-3">
-              {product.badge}
-            </p>
-
-            <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.03em] text-slate-950">
-              {product.name}
-            </h1>
-
-            <p className="mt-3 text-2xl font-semibold text-slate-900">
-              {product.price}
-            </p>
-
-            <p className="mt-5 text-slate-600 leading-relaxed">
-              {product.description}
-            </p>
-
-            {/* Sizes */}
-            <div className="mt-8">
-              <h2 className="text-sm font-semibold text-slate-900 mb-3">Size</h2>
-              <div className="flex flex-wrap gap-3">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 rounded-xl border text-sm font-medium transition ${
-                      selectedSize === size
-                        ? "border-[var(--primary)] bg-[var(--primary)] text-white"
-                        : "border-slate-300 text-slate-700 hover:border-[var(--primary)]"
-                    }`}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Quantity */}
-            <div className="mt-8">
-              <h2 className="text-sm font-semibold text-slate-900 mb-3">Quantity</h2>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-                  className="w-10 h-10 rounded-lg border border-slate-300 text-lg"
-                >
-                  -
-                </button>
-                <span className="w-10 text-center font-medium">{quantity}</span>
-                <button
-                  onClick={() => setQuantity((prev) => prev + 1)}
-                  className="w-10 h-10 rounded-lg border border-slate-300 text-lg"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            {/* Add to cart */}
-            <div className="mt-10">
-              <button
-                onClick={handleAddToCart}
-                className="w-full md:w-auto px-8 py-4 rounded-2xl bg-[var(--primary)] text-white font-semibold hover:opacity-90 transition"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PRODUCTS.map((p) => (
+              <div
+                key={p.id}
+                className="rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
-                Add to Cart
-              </button>
-            </div>
+                <div className="relative h-80">
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
+                    {p.badge}
+                  </div>
+                </div>
 
+                <div className="p-5">
+                  <h2 className="font-medium text-slate-900">{p.name}</h2>
+                  <p className="mt-1 font-semibold text-slate-900">{p.price}</p>
+
+                  <Link
+                    href={`/product/${p.id}`}
+                    className="text-sm mt-3 inline-block text-[var(--primary)] hover:underline"
+                  >
+                    View details →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
             <Link
               href="/"
-              className="inline-block mt-6 text-sm text-[var(--primary)] hover:underline"
+              className="text-sm text-[var(--primary)] hover:underline"
             >
               ← Back to home
             </Link>
