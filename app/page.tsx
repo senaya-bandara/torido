@@ -87,11 +87,34 @@ export default function Home() {
                   <p className="font-semibold mt-1">{p.price}</p>
 
                   <Link
-                    href={`/product/${p.id}`}
-                    className="text-sm mt-3 inline-block text-[var(--primary)] hover:underline"
-                  >
-                    View details →
-                  </Link>
+  href={`/product/${p.id}`}
+  className="block rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden group"
+>
+  <div className="relative h-80">
+    <Image
+      src={p.image}
+      alt={p.name}
+      fill
+      className="object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+
+    <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
+      {p.badge}
+    </div>
+  </div>
+
+  <div className="p-5">
+    <h3 className="font-medium group-hover:text-[var(--primary)] transition">
+      {p.name}
+    </h3>
+
+    <p className="mt-1 font-semibold">{p.price}</p>
+
+    <span className="text-sm mt-3 inline-block text-[var(--primary)] group-hover:underline">
+      View details →
+    </span>
+  </div>
+</Link>
                 </div>
               </div>
             ))}
