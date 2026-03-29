@@ -271,16 +271,17 @@ export default function Home() {
           </div>
 
           <button
-    onClick={() => setMobileMenuOpen((prev) => !prev)}
-    className="md:hidden p-2 -mr-2"   // 👈 KEY FIX
-  >
-    {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-  </button>
+  onClick={() => setMobileMenuOpen((prev) => !prev)}
+  className="md:hidden ml-auto inline-flex items-center justify-center p-2"
+  aria-label="Toggle menu"
+>
+  {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+</button>
 
 
           {/* Right: Search + Account */}
-          <div className="flex shrink-0 items-center justify-end gap-4 min-w-[360px]">
-            <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-56 focus-within:ring-2 focus-within:ring-[var(--primary)]">
+          <div className="hidden md:flex shrink-0 items-center justify-end gap-4 min-w-[360px]">
+                        <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-56 focus-within:ring-2 focus-within:ring-[var(--primary)]">
               <Search
                 size={18}
                 strokeWidth={1.5}
