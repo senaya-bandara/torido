@@ -51,30 +51,38 @@ export default function AccountPage() {
         });
 
         router.push("/");
-      } else {
+      }  else {
         const userCredential = await signInWithEmailAndPassword(
           auth,
           email,
           password
         );
-
-        const userDoc = await getDoc(doc(db, "users", userCredential.user.uid));
-        if (!userDoc.exists()) {
-          await setDoc(doc(db, "users", userCredential.user.uid), {
-            uid: userCredential.user.uid,
-            fullName:
-              userCredential.user.displayName ||
-              userCredential.user.email?.split("@")[0] ||
-              "",
-            email: userCredential.user.email || "",
-            address: "",
-            contactNumber: "",
-            createdAt: new Date().toISOString(),
-          });
-        }
-
-        router.push("/");
+      
+        const uid = userCredential.user.uid;
+      
+        router.replace("/");
+      
+        void getDoc(doc(db, "users", uid)).then((userDoc) => {
+          if (!userDoc.exists()) {
+            return setDoc(doc(db, "users", uid), {
+              uid,
+              fullName:
+                userCredential.user.displayName ||
+                userCredential.user.email?.split("@")[0] ||
+                "",
+              email: userCredential.user.email || "",
+              address: "",
+              contactNumber: "",
+              createdAt: new Date().toISOString(),
+            });
+          }
+        });
       }
+
+
+
+        
+            
     } catch (err: any) {
       setError(err?.message || "Something went wrong.");
     } finally {
