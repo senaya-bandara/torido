@@ -10,47 +10,160 @@ import {
   RefreshCcw,
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import { onAuthStateChanged, signOut, User as FirebaseUser } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  signOut,
+  User as FirebaseUser,
+} from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 const PRODUCTS = [
-  { id: "dino-smile", name: "Dino Smile Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "COD" },
-  { id: "unicorn-dreams", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
-  { id: "unicorn-dreams-2", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
-
-  { id: "tshirt-4", name: "Dino Smile Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "COD" },
-  { id: "tshirt-5", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
-  { id: "tshirt-6", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
-
-  { id: "tshirt-7", name: "Dino Smile Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "COD" },
-  { id: "tshirt-8", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
-  { id: "tshirt-9", name: "Unicorn Dreams Tee", price: "Rs 2,300", image: "/product2.png", badge: "COD" },
+  {
+    id: "dino-smile",
+    name: "Dino Smile Tee",
+    price: "Rs 2,450",
+    image: "/product1.jpg",
+    badge: "COD",
+  },
+  {
+    id: "unicorn-dreams",
+    name: "Unicorn Dreams Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "COD",
+  },
+  {
+    id: "unicorn-dreams-2",
+    name: "Unicorn Dreams Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "COD",
+  },
+  {
+    id: "tshirt-4",
+    name: "Dino Smile Tee",
+    price: "Rs 2,450",
+    image: "/product1.jpg",
+    badge: "COD",
+  },
+  {
+    id: "tshirt-5",
+    name: "Unicorn Dreams Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "COD",
+  },
+  {
+    id: "tshirt-6",
+    name: "Unicorn Dreams Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "COD",
+  },
+  {
+    id: "tshirt-7",
+    name: "Dino Smile Tee",
+    price: "Rs 2,450",
+    image: "/product1.jpg",
+    badge: "COD",
+  },
+  {
+    id: "tshirt-8",
+    name: "Unicorn Dreams Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "COD",
+  },
+  {
+    id: "tshirt-9",
+    name: "Unicorn Dreams Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "COD",
+  },
 ];
 
 const BEST_SELLERS = [
-  { id: "best-1", name: "Dino Classic Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "BEST" },
-  { id: "best-2", name: "Unicorn Spark Tee", price: "Rs 2,300", image: "/product2.png", badge: "BEST" },
-  { id: "best-3", name: "Explorer Print Tee", price: "Rs 2,350", image: "/product1.jpg", badge: "BEST" },
-
-  { id: "best-4", name: "Dino Classic Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "BEST" },
-  { id: "best-5", name: "Unicorn Spark Tee", price: "Rs 2,300", image: "/product2.png", badge: "BEST" },
-  { id: "best-6", name: "Explorer Print Tee", price: "Rs 2,350", image: "/product1.jpg", badge: "BEST" },
-
-  { id: "best-7", name: "Dino Classic Tee", price: "Rs 2,450", image: "/product1.jpg", badge: "BEST" },
-  { id: "best-8", name: "Unicorn Spark Tee", price: "Rs 2,300", image: "/product2.png", badge: "BEST" },
-  { id: "best-9", name: "Explorer Print Tee", price: "Rs 2,350", image: "/product1.jpg", badge: "BEST" },
+  {
+    id: "best-1",
+    name: "Dino Classic Tee",
+    price: "Rs 2,450",
+    image: "/product1.jpg",
+    badge: "BEST",
+  },
+  {
+    id: "best-2",
+    name: "Unicorn Spark Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "BEST",
+  },
+  {
+    id: "best-3",
+    name: "Explorer Print Tee",
+    price: "Rs 2,350",
+    image: "/product1.jpg",
+    badge: "BEST",
+  },
+  {
+    id: "best-4",
+    name: "Dino Classic Tee",
+    price: "Rs 2,450",
+    image: "/product1.jpg",
+    badge: "BEST",
+  },
+  {
+    id: "best-5",
+    name: "Unicorn Spark Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "BEST",
+  },
+  {
+    id: "best-6",
+    name: "Explorer Print Tee",
+    price: "Rs 2,350",
+    image: "/product1.jpg",
+    badge: "BEST",
+  },
+  {
+    id: "best-7",
+    name: "Dino Classic Tee",
+    price: "Rs 2,450",
+    image: "/product1.jpg",
+    badge: "BEST",
+  },
+  {
+    id: "best-8",
+    name: "Unicorn Spark Tee",
+    price: "Rs 2,300",
+    image: "/product2.png",
+    badge: "BEST",
+  },
+  {
+    id: "best-9",
+    name: "Explorer Print Tee",
+    price: "Rs 2,350",
+    image: "/product1.jpg",
+    badge: "BEST",
+  },
 ];
 
 export default function Home() {
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+
+  const [searchInput, setSearchInput] = useState("");
+  const [submittedSearch, setSubmittedSearch] = useState("");
+
   const accountRef = useRef<HTMLDivElement | null>(null);
+  const productsRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -68,9 +181,24 @@ export default function Home() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const filteredProducts = PRODUCTS.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredProducts = submittedSearch
+    ? PRODUCTS.filter((product) =>
+        product.name.toLowerCase().includes(submittedSearch.toLowerCase())
+      )
+    : PRODUCTS;
+
+  function clearSearch() {
+    setSearchInput("");
+    setSubmittedSearch("");
+  }
+
+  function handleSearchSubmit() {
+    setSubmittedSearch(searchInput.trim());
+    productsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 
   return (
     <main className="text-slate-900">
@@ -79,7 +207,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
           {/* Left: Logo */}
           <div className="flex shrink-0 items-center min-w-[220px]">
-            <Link href="/" className="flex items-center">
+            <Link
+              href="/"
+              className="flex items-center"
+              onClick={clearSearch}
+            >
               <Image
                 src="/logo.png"
                 alt="Torido"
@@ -94,22 +226,40 @@ export default function Home() {
           {/* Center: Nav */}
           <div className="flex flex-1 justify-center">
             <nav className="hidden md:flex items-center gap-8 whitespace-nowrap text-[12px] font-bold tracking-[0.14em] uppercase text-slate-900">
-              <Link href="#products" className="hover:text-[var(--primary)] transition">
+              <Link
+                href="#products"
+                className="hover:text-[var(--primary)] transition"
+              >
                 T-Shirts
               </Link>
-              <Link href="#new" className="hover:text-[var(--primary)] transition">
+              <Link
+                href="#new"
+                className="hover:text-[var(--primary)] transition"
+              >
                 New
               </Link>
-              <Link href="#best" className="hover:text-[var(--primary)] transition">
+              <Link
+                href="#best"
+                className="hover:text-[var(--primary)] transition"
+              >
                 Best Sellers
               </Link>
-              <Link href="#offers" className="hover:text-[var(--primary)] transition">
+              <Link
+                href="#offers"
+                className="hover:text-[var(--primary)] transition"
+              >
                 Offers
               </Link>
-              <Link href="#faq" className="hover:text-[var(--primary)] transition">
+              <Link
+                href="#faq"
+                className="hover:text-[var(--primary)] transition"
+              >
                 FAQ
               </Link>
-              <Link href="#contact" className="hover:text-[var(--primary)] transition">
+              <Link
+                href="#contact"
+                className="hover:text-[var(--primary)] transition"
+              >
                 Contact
               </Link>
             </nav>
@@ -118,10 +268,20 @@ export default function Home() {
           {/* Right: Search + Account */}
           <div className="flex shrink-0 items-center justify-end gap-4 min-w-[360px]">
             <div className="hidden md:flex items-center border border-slate-200 rounded-xl px-3 py-2 w-56 focus-within:ring-2 focus-within:ring-[var(--primary)]">
-              <Search size={18} strokeWidth={1.5} className="text-slate-500" />
+              <Search
+                size={18}
+                strokeWidth={1.5}
+                className="text-slate-500"
+              />
               <input
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleSearchSubmit();
+                  }
+                }}
                 className="ml-2 w-full text-sm outline-none placeholder:text-slate-400"
                 placeholder="Search tees..."
               />
@@ -247,7 +407,7 @@ export default function Home() {
       </section>
 
       {/* PRODUCTS */}
-      <section id="products" className="bg-white">
+      <section id="products" ref={productsRef} className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="mb-10">
             <p className="text-xs uppercase tracking-[0.22em] text-[var(--primary)] mb-3">
@@ -261,11 +421,13 @@ export default function Home() {
             </p>
           </div>
 
-          <p className="text-slate-500 mb-8">Minimal • White-first • Lime accents</p>
+          <p className="text-slate-500 mb-8">
+            Minimal • White-first • Lime accents
+          </p>
 
           {filteredProducts.length === 0 ? (
             <div className="rounded-2xl border border-slate-200 bg-white p-8 text-slate-500">
-              No T-shirts found for "{searchTerm}".
+              No T-shirts found for "{submittedSearch}".
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -275,11 +437,17 @@ export default function Home() {
                   className="theme-card rounded-2xl transition overflow-hidden"
                 >
                   <div className="relative h-80">
-                    <Image src={p.image} alt={p.name} fill className="object-cover" />
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      className="object-cover"
+                    />
                     <div className="absolute top-3 left-3 bg-[var(--primary)] text-white text-xs px-3 py-1 rounded-full">
                       {p.badge}
                     </div>
                   </div>
+
                   <div className="p-5">
                     <h3 className="font-medium">{p.name}</h3>
                     <p className="mt-1 font-semibold">{p.price}</p>
@@ -301,9 +469,7 @@ export default function Home() {
       <section id="best" className="theme-soft-section">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <h2 className="text-2xl font-semibold mb-2">Best Sellers</h2>
-          <p className="text-slate-500 mb-8 text-sm">
-            Our most loved pieces.
-          </p>
+          <p className="text-slate-500 mb-8 text-sm">Our most loved pieces.</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {BEST_SELLERS.map((p) => (
@@ -364,11 +530,15 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border border-slate-100 p-6 bg-white">
             <p className="font-medium mb-2">How do I pay?</p>
-            <p className="text-slate-600 text-sm">Cash on Delivery (COD) only.</p>
+            <p className="text-slate-600 text-sm">
+              Cash on Delivery (COD) only.
+            </p>
           </div>
           <div className="rounded-2xl border border-slate-100 p-6 bg-white">
             <p className="font-medium mb-2">Delivery time?</p>
-            <p className="text-slate-600 text-sm">We’ll confirm delivery after order.</p>
+            <p className="text-slate-600 text-sm">
+              We’ll confirm delivery after order.
+            </p>
           </div>
         </div>
       </section>
@@ -381,7 +551,8 @@ export default function Home() {
           <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold text-slate-900">Torido</h3>
             <p className="mt-3 text-slate-600 leading-relaxed">
-              Premium cotton kidswear designed for comfort, safety and everyday play.
+              Premium cotton kidswear designed for comfort, safety and everyday
+              play.
             </p>
 
             <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
