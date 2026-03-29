@@ -1,8 +1,11 @@
+"use client";
+
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_REAL_API_KEY_HERE",
+  apiKey: "AIzaSyAIxAbozlYw1Jhx-xmwO5odk0lrOcKo-yM",
   authDomain: "torido-store.firebaseapp.com",
   projectId: "torido-store",
   storageBucket: "torido-store.appspot.com",
@@ -13,3 +16,4 @@ const firebaseConfig = {
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+export const db = getFirestore(app);
