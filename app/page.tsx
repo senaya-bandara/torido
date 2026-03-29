@@ -20,6 +20,8 @@ import {
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
+
+
 const PRODUCTS = [
   {
     id: "dino-smile",
