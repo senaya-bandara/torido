@@ -1,6 +1,6 @@
 export const PRODUCTS = [
   {
-    id: "dino-smile",
+    id: "tshirt-1",
     name: "Dino Smile Tee",
     price: "Rs 2,450",
     image: "/product1.jpg",
@@ -9,7 +9,7 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L"],
   },
   {
-    id: "unicorn-dreams",
+    id: "tshirt-2",
     name: "Unicorn Dreams Tee",
     price: "Rs 2,300",
     image: "/product2.png",
@@ -18,7 +18,7 @@ export const PRODUCTS = [
     sizes: ["S", "M", "L"],
   },
   {
-    id: "unicorn-dreams-2",
+    id: "tshirt-3",
     name: "Unicorn Dreams Tee",
     price: "Rs 2,300",
     image: "/product2.png",
@@ -89,12 +89,16 @@ export const BEST_SELLERS = [
     price: "Rs 2,450",
     image: "/product1.jpg",
     badge: "BEST",
+    description: "A bestselling cotton tee designed for everyday wear.",
+    sizes: ["2Y", "4Y", "6Y", "8Y"],
   },
   {
     id: "best-2",
-    name: "Unicorn Spark Tee",
-    price: "Rs 2,300",
-    image: "/product2.png",
+    name: "Dino Classic Tee",
+    price: "Rs 1,450",
+    image: "/product1.jpg",
     badge: "BEST",
+    description: "A bestselling cotton tee designed for everyday wear.",
+    sizes: ["2Y", "4Y", "6Y", "8Y"],
   },
 ];
