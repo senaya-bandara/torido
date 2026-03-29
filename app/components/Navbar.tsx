@@ -32,11 +32,11 @@ export default function Navbar() {
   }, []);
 
   const firstName =
-  user?.displayName && user.displayName.trim() !== ""
-    ? user.displayName.split(" ")[0]
-    : user?.email
-    ? user.email.split("@")[0]
-    : "User";
+    user?.displayName && user.displayName.trim() !== ""
+      ? user.displayName.split(" ")[0]
+      : user?.email
+      ? user.email.split("@")[0]
+      : "User";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
@@ -54,33 +54,36 @@ export default function Navbar() {
         <button
           onClick={() => setMobileMenuOpen((prev) => !prev)}
           className="ml-auto md:hidden p-2"
+          aria-label="Toggle mobile menu"
         >
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
         <nav className="hidden md:flex mx-auto gap-8 text-xs font-bold uppercase tracking-[0.14em]">
-          <Link href="#products">T-Shirts</Link>
-          <Link href="#new">New</Link>
-          <Link href="#best">Best Sellers</Link>
-          <Link href="#offers">Offers</Link>
-          <Link href="#faq">FAQ</Link>
-          <Link href="#contact">Contact</Link>
+          <Link href="/#products">T-Shirts</Link>
+          <Link href="/#new">New</Link>
+          <Link href="/#best">Best Sellers</Link>
+          <Link href="/#offers">Offers</Link>
+          <Link href="/#faq">FAQ</Link>
+          <Link href="/#contact">Contact</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4 ml-auto">
           <div className="flex items-center border rounded-xl px-3 py-2">
             <Search size={16} />
             <input
-  value={searchInput}
-  onChange={(e) => setSearchInput(e.target.value)}
-  onKeyDown={(e) => {
-    if (e.key === "Enter") {
-      window.location.href = `/search?q=${encodeURIComponent(searchInput)}`;
-    }
-  }}
-  className="ml-2 text-sm outline-none"
-  placeholder="Search..."
-/>
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && searchInput.trim()) {
+                  window.location.href = `/search?q=${encodeURIComponent(
+                    searchInput.trim()
+                  )}`;
+                }
+              }}
+              className="ml-2 text-sm outline-none"
+              placeholder="Search..."
+            />
           </div>
 
           <div ref={accountRef} className="relative">
@@ -89,6 +92,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setMenuOpen((p) => !p)}
                   className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-slate-50 transition"
+                  aria-label="Open account menu"
                 >
                   <UserIcon size={18} className="text-[var(--primary)]" />
                   <span className="text-sm font-medium text-slate-900">
@@ -97,13 +101,13 @@ export default function Navbar() {
                 </button>
 
                 {menuOpen && (
-                  <div className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-2xl shadow-lg overflow-hidden">
+                  <div className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-2xl shadow-lg overflow-hidden z-50">
                     <Link
-                      href="/account/settings"
+                      href="/account/profile"
                       className="block px-4 py-3 text-sm hover:bg-slate-50"
                       onClick={() => setMenuOpen(false)}
                     >
-                      Account Settings
+                      Profile Details
                     </Link>
 
                     <Link
@@ -111,7 +115,7 @@ export default function Navbar() {
                       className="block px-4 py-3 text-sm hover:bg-slate-50"
                       onClick={() => setMenuOpen(false)}
                     >
-                      Profile Details
+                      Account Settings
                     </Link>
 
                     <button
@@ -142,22 +146,22 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t px-4 py-4 bg-white">
           <div className="flex flex-col gap-4 text-sm font-semibold uppercase">
-            <Link href="#products" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/#products" onClick={() => setMobileMenuOpen(false)}>
               T-Shirts
             </Link>
-            <Link href="#new" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/#new" onClick={() => setMobileMenuOpen(false)}>
               New
             </Link>
-            <Link href="#best" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/#best" onClick={() => setMobileMenuOpen(false)}>
               Best Sellers
             </Link>
-            <Link href="#offers" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/#offers" onClick={() => setMobileMenuOpen(false)}>
               Offers
             </Link>
-            <Link href="#faq" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/#faq" onClick={() => setMobileMenuOpen(false)}>
               FAQ
             </Link>
-            <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
               Contact
             </Link>
 
@@ -167,6 +171,15 @@ export default function Navbar() {
                   <p className="text-sm normal-case font-medium text-[var(--primary)] mb-3">
                     Hello {firstName}
                   </p>
+
+                  <Link
+                    href="/account/profile"
+                    className="block py-2 normal-case"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Profile Details
+                  </Link>
+
                   <Link
                     href="/account/settings"
                     className="block py-2 normal-case"
@@ -174,6 +187,7 @@ export default function Navbar() {
                   >
                     Account Settings
                   </Link>
+
                   <button
                     onClick={async () => {
                       await signOut(auth);
