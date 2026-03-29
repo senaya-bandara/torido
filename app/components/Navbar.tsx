@@ -31,8 +31,11 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const firstName = user?.displayName?.trim().split(" ")[0] || "User";
-
+  const firstName =
+  user?.displayName?.trim().split(" ")[0] ||
+  user?.email?.split("@")[0] ||
+  "User";
+  
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center">
