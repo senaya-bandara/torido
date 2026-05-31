@@ -13,13 +13,12 @@ export default function HomePage() {
      {/* HERO */}
 <section className="relative h-screen overflow-hidden">
 
-  <Image
-    src="/hero.png"
-    alt="Torido Hero"
-    fill
-    priority
-    className="object-cover"
-  />
+<Image
+  src={p.image}
+  alt={p.name}
+  fill
+  className="object-contain bg-white"
+/>
 
   <div className="absolute inset-0 bg-black/25" />
 
