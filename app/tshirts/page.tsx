@@ -39,16 +39,25 @@ useEffect(() => {
  
       {/* HERO */}
 <section className="relative h-[60vh] overflow-hidden">
+  {heroImages.map((image, index) => (
   <Image
-  src={heroImages[currentImage]}
-  alt="Torido Hero"
-  fill
-  priority
-  className="object-cover transition-all duration-1000"
-/>
+    key={image}
+    src={image}
+    alt="Torido Hero"
+    fill
+    priority
+    className={`
+      object-cover
+      absolute
+      transition-opacity
+      duration-1000
+      ${index === currentImage ? "opacity-100" : "opacity-0"}
+    `}
+  />
+))}
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
-
+<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+ 
 <div className="absolute inset-0 flex items-center pt-16">
   <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-xl text-white">
@@ -64,22 +73,28 @@ useEffect(() => {
                 Comfortable, durable and playful designs made for active kids.
               </p>
 
-              <Link
-                href="#products"
-                className="
-block
-rounded-3xl
+             <Link
+  href="#products"
+  className="
+inline-flex
+items-center
+justify-center
+px-8
+py-4
+mt-8
+rounded-2xl
 bg-white
+text-slate-900
+font-semibold
 shadow-lg
 hover:shadow-2xl
-hover:-translate-y-2
+hover:-translate-y-1
 transition-all
 duration-300
-overflow-hidden
 "
-              >
-                Shop Collection
-              </Link>
+>
+  Shop Collection
+</Link>
             </div>
           </div>
         </div>
