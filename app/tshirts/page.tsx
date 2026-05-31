@@ -11,11 +11,10 @@ export default function TshirtsPage() {
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
-  className="pt-24"
 >
       {/* HERO */}
-      <section className="relative h-[60vh] -mt-20 overflow-hidden">
-        <Image
+<section className="relative h-[60vh] overflow-hidden">
+  <Image
   src="/hero.png"
   alt="T-Shirts"
   fill
@@ -41,7 +40,17 @@ export default function TshirtsPage() {
 
               <Link
                 href="#products"
-                className="inline-block mt-8 bg-white text-black px-8 py-4 rounded-2xl font-semibold shadow-lg hover:scale-105 transition"
+                className="
+block
+rounded-3xl
+bg-white
+shadow-lg
+hover:shadow-2xl
+hover:-translate-y-2
+transition-all
+duration-300
+overflow-hidden
+"
               >
                 Shop Collection
               </Link>
@@ -50,34 +59,7 @@ export default function TshirtsPage() {
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <section className="bg-white border-y">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-
-            <div>
-              <div className="text-3xl mb-2">🌿</div>
-              <p className="font-semibold">100% Cotton</p>
-            </div>
-
-            <div>
-              <div className="text-3xl mb-2">🚚</div>
-              <p className="font-semibold">Islandwide Delivery</p>
-            </div>
-
-            <div>
-              <div className="text-3xl mb-2">💵</div>
-              <p className="font-semibold">Cash On Delivery</p>
-            </div>
-
-            <div>
-              <div className="text-3xl mb-2">⭐</div>
-              <p className="font-semibold">Premium Quality</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
+    
 
       {/* SECTION TITLE */}
       <section
