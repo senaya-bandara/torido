@@ -39,8 +39,19 @@ export default function Navbar() {
       : "User";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center">
+<header
+  className="
+    fixed
+    top-0
+    left-0
+    right-0
+    z-50
+    bg-white/80
+    backdrop-blur-md
+    border-b
+    border-slate-200/50
+  "
+>      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
