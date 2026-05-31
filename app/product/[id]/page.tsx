@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
+import AddToCartButton from "@/app/components/AddToCartButton";
 
 export default async function ProductPage({
   params,
@@ -63,13 +64,9 @@ export default async function ProductPage({
 
             {/* Actions */}
             <div className="mt-8 flex gap-4 flex-wrap">
-              <button className="px-6 py-3 rounded-xl bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-dark)] transition">
-                Add to Cart
-              </button>
+              <AddToCartButton product={product} />
 
-              <button className="px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 transition">
-                Buy Now
-              </button>
+            
             </div>
 
             {/* Info */}
