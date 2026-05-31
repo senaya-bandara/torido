@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Menu, X, User as UserIcon } from "lucide-react";
+import {
+  Search,
+  Menu,
+  X,
+  User as UserIcon,
+  ShoppingBag,
+} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -12,6 +18,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const [cartCount, setCartCount] = useState(0);
 
   const accountRef = useRef<HTMLDivElement | null>(null);
 
@@ -20,6 +27,11 @@ export default function Navbar() {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  setCartCount(cart.length);
+}, []);
+  
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
@@ -121,7 +133,45 @@ export default function Navbar() {
               placeholder="Search..."
             />
           </div>
+<Link
+  href="/cart"
+  className="
+    relative
+    flex
+    items-center
+    justify-center
+    w-11
+    h-11
+    rounded-2xl
+    bg-slate-50
+    hover:bg-slate-100
+    transition-all
+  "
+>
+  <ShoppingBag size={20} />
 
+  {cartCount > 0 && (
+    <span
+      className="
+        absolute
+        -top-1
+        -right-1
+        bg-green-600
+        text-white
+        text-[10px]
+        font-bold
+        min-w-[18px]
+        h-[18px]
+        rounded-full
+        flex
+        items-center
+        justify-center
+      "
+    >
+      {cartCount}
+    </span>
+  )}
+</Link>
           <div ref={accountRef} className="relative">
             {user ? (
               <>
