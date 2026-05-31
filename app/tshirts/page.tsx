@@ -8,9 +8,9 @@ import PageTransition from "@/app/components/PageTransition";
 import { useEffect, useState } from "react";
 
  const heroImages = [
-  "/hero-green.jpg",
-  "/hero-black.jpg",
-  "/hero-pink.jpg",
+  "/product1.png",
+  "/product2.png",
+  "/product3.png",
 ];
 
 export default function TshirtsPage() {
