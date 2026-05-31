@@ -1,25 +1,37 @@
 "use client";
 
+import { auth, db } from "@/lib/firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+
 export default function AddToCartButton({
   product,
 }: {
   product: any;
 }) {
-  const addToCart = () => {
-    const cart = JSON.parse(
-      localStorage.getItem("cart") || "[]"
-    );
 
-    cart.push(product);
+  const addToCart = async () => {
+    const user = auth.currentUser;
 
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(cart)
-    );
+    if (!user) {
+      alert("Please login first");
+      return;
+    }
 
-    window.dispatchEvent(
-      new Event("cartUpdated")
-    );
+    const cartRef = doc(db, "carts", user.uid);
+
+    const cartSnap = await getDoc(cartRef);
+
+    let items = [];
+
+    if (cartSnap.exists()) {
+      items = cartSnap.data().items || [];
+    }
+
+    items.push(product);
+
+    await setDoc(cartRef, {
+      items,
+    });
 
     alert("Added to cart!");
   };
