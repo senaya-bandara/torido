@@ -14,7 +14,7 @@ export default function TshirtsPage() {
   className="pt-24"
 >
       {/* HERO */}
-      <section className="relative h-[500px] overflow-hidden">
+      <section className="relative h-[60vh] -mt-20 overflow-hidden">
         <Image
           src="/hero.png"
           alt="Torido Collection"
