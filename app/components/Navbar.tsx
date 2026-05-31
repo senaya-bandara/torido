@@ -63,7 +63,7 @@ export default function Navbar() {
         <nav className="hidden md:flex mx-auto gap-8 text-xs font-bold uppercase tracking-[0.14em]">
       <Link href="/tshirts">T-Shirts</Link>
       <Link href="/new">New</Link>
-      <Link href="/best-sellers">Best Sellers</Link>
+      <Link href="/best sellers">Best Sellers</Link>
       <Link href="/offers">Offers</Link>
       <Link href="/faq">FAQ</Link>
         </nav>
