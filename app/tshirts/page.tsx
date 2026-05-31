@@ -16,12 +16,11 @@ export default function TshirtsPage() {
       {/* HERO */}
       <section className="relative h-[60vh] -mt-20 overflow-hidden">
         <Image
-          src="/hero.png"
-          alt="Torido Collection"
-          fill
-          priority
-          className="object-cover"
-        />
+  src="/hero-tshirt.png"
+  alt="T-Shirts"
+  fill
+  className="object-cover object-[center_20%]"
+/>
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
 
