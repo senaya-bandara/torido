@@ -60,12 +60,11 @@ export default function Navbar() {
         </button>
 
         <nav className="hidden md:flex mx-auto gap-8 text-xs font-bold uppercase tracking-[0.14em]">
-          <Link href="/#products">T-Shirts</Link>
-          <Link href="/#new">New</Link>
-          <Link href="/#best">Best Sellers</Link>
-          <Link href="/#offers">Offers</Link>
-          <Link href="/#faq">FAQ</Link>
-          <Link href="/#contact">Contact</Link>
+      <Link href="/tshirts">T-Shirts</Link>
+      <Link href="/new">New</Link>
+      <Link href="/best-sellers">Best Sellers</Link>
+      <Link href="/offers">Offers</Link>
+      <Link href="/faq">FAQ</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4 ml-auto">
