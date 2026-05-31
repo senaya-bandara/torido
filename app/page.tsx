@@ -8,10 +8,10 @@ export default function HomePage() {
   <>
  
 
-    <main className="pt-16">
+    <main>
 
       {/* HERO */}
-<section className="relative h-[85vh] -mt-1 overflow-hidden">
+<section className="relative h-screen overflow-hidden">
      <Image
           src="/hero.jpg"
           alt="Torido Hero"
@@ -183,8 +183,8 @@ export default function HomePage() {
       </section>
 
       {/* REVIEWS */}
-      <section className="bg-slate-50 py-24">
-
+<section className="bg-slate-50 py-12">
+     
         <div className="max-w-7xl mx-auto px-6">
 
           <h2 className="text-center text-4xl font-bold mb-16">
