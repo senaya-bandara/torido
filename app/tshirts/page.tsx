@@ -1,11 +1,18 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { PRODUCTS } from "@/lib/products";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function TshirtsPage() {
   return (
-    <main className="bg-slate-50 min-h-screen">
-
+<motion.main
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="pt-24"
+>
       {/* HERO */}
       <section className="relative h-[500px] overflow-hidden">
         <Image
@@ -198,6 +205,6 @@ export default function TshirtsPage() {
 
       </section>
 
-    </main>
+    </motion.main>
   );
 }

@@ -39,6 +39,7 @@ export default function AccountPage() {
           await updateProfile(userCredential.user, {
             displayName: fullName.trim(),
           });
+          await userCredential.user.reload();
         }
 
         await setDoc(doc(db, "users", userCredential.user.uid), {
@@ -52,11 +53,17 @@ export default function AccountPage() {
 
         router.push("/");
       }  else {
-        const userCredential = await signInWithEmailAndPassword(
+        const userCredential = await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
+        
+        if (fullName.trim()) {
+          await updateProfile(userCredential.user, {
+            displayName: fullName.trim(),
+          });
+        }
       
         const uid = userCredential.user.uid;
       
