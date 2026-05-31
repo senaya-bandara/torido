@@ -2,11 +2,9 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/footer";
 import Link from "next/link";
 import Image from "next/image";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
 
 export default function TshirtsPage() {
-  return (
-    <>
      return (
   <>
     <Navbar />
