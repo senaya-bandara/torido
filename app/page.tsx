@@ -13,7 +13,7 @@ export default function HomePage() {
       {/* HERO */}
 <section className="relative h-screen overflow-hidden">
      <Image
-          src="/hero.jpg"
+          src="/hero.png"
           alt="Torido Hero"
           fill
           priority
