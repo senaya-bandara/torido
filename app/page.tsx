@@ -10,42 +10,47 @@ export default function HomePage() {
 
     <main>
 
-      {/* HERO */}
-<Image
-  src="/hero.png"
-  alt="Torido Hero"
-  fill
-  priority
-  className="object-cover"
-/>
+     {/* HERO */}
+<section className="relative h-screen overflow-hidden">
 
-        <div className="absolute inset-0 bg-black/25" />
+  <Image
+    src="/hero.png"
+    alt="Torido Hero"
+    fill
+    priority
+    className="object-cover"
+  />
 
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-6 w-full">
-            <div className="max-w-xl text-white">
-              <p className="uppercase tracking-[0.25em] mb-4">
-                New Collection 2026
-              </p>
+  <div className="absolute inset-0 bg-black/25" />
 
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                Comfort Made Simple.
-              </h1>
+  <div className="absolute inset-0 flex items-center">
+    <div className="max-w-7xl mx-auto px-6 w-full">
+      <div className="max-w-xl text-white">
 
-              <p className="mt-6 text-lg">
-                Premium cotton tees for kids.
-              </p>
+        <p className="uppercase tracking-[0.25em] mb-4">
+          New Collection 2026
+        </p>
 
-              <Link
-                href="/tshirts"
-                className="inline-block mt-8 bg-white text-black px-8 py-4 rounded-xl font-semibold"
-              >
-                Shop Collection
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+        <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          Comfort Made Simple.
+        </h1>
+
+        <p className="mt-6 text-lg">
+          Premium cotton tees for kids.
+        </p>
+
+        <Link
+          href="/tshirts"
+          className="inline-block mt-8 bg-white text-black px-8 py-4 rounded-xl font-semibold"
+        >
+          Shop Collection
+        </Link>
+
+      </div>
+    </div>
+  </div>
+
+</section>
 
       {/* NEW ARRIVALS */}
       <section className="max-w-7xl mx-auto px-6 py-24">
