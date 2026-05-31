@@ -5,7 +5,7 @@ import PageTransition from "@/app/components/PageTransition";
 export default function FAQPage() {
   return (
     <PageTransition>
-      <Navbar />
+
 
       <main className="max-w-5xl mx-auto px-6 py-24">
         <h1 className="text-4xl font-bold mb-10">
@@ -42,7 +42,7 @@ export default function FAQPage() {
         </div>
       </main>
 
-      <Footer />
+
     </PageTransition>
   );
 }
