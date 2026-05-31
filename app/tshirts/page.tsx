@@ -38,8 +38,8 @@ useEffect(() => {
 
  
       {/* HERO */}
-<section className="relative h-[60vh] overflow-hidden">
-  {heroImages.map((image, index) => (
+<section className="relative h-[70vh] overflow-hidden">
+ {heroImages.map((image, index) => (
   <Image
     key={image}
     src={image}
@@ -73,25 +73,25 @@ useEffect(() => {
                 Comfortable, durable and playful designs made for active kids.
               </p>
 
-             <Link
+   <Link
   href="#products"
   className="
-inline-flex
-items-center
-justify-center
-px-8
-py-4
-mt-8
-rounded-2xl
-bg-white
-text-slate-900
-font-semibold
-shadow-lg
-hover:shadow-2xl
-hover:-translate-y-1
-transition-all
-duration-300
-"
+  inline-flex
+  items-center
+  justify-center
+  px-8
+  py-4
+  mt-10
+  rounded-2xl
+  bg-white
+  text-slate-900
+  font-semibold
+  shadow-lg
+  hover:shadow-2xl
+  hover:-translate-y-1
+  transition-all
+  duration-300
+  "
 >
   Shop Collection
 </Link>
