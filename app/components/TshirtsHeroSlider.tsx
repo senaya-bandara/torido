@@ -21,6 +21,7 @@ export default function TshirtsHeroSlider() {
   }, []);
 
   return (
+  <div className="relative h-full w-full">
     <Image
       src={images[current]}
       alt="Torido Hero"
@@ -28,5 +29,6 @@ export default function TshirtsHeroSlider() {
       priority
       className="object-cover"
     />
-  );
+  </div>
+);
 }
