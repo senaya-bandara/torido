@@ -6,14 +6,10 @@ import Image from "next/image";
 import { BEST_SELLERS } from "@/lib/products";
 import PageTransition from "@/app/components/PageTransition";
 
-export default function BestSellersPage() {
+
+export default function NewPage() {
   return (
-
     <PageTransition>
-
-    <>
-    
-
       <main className="max-w-7xl mx-auto px-6 py-24">
         <h1 className="text-4xl font-bold mb-8">Best Sellers</h1>
 
@@ -25,7 +21,12 @@ export default function BestSellersPage() {
               className="block rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-lg transition"
             >
               <div className="relative h-80">
-                <Image src={p.image} alt={p.name} fill className="object-cover" />
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  fill
+                  className="object-cover"
+                />
               </div>
 
               <div className="p-5">
@@ -36,9 +37,6 @@ export default function BestSellersPage() {
           ))}
         </div>
       </main>
-
     </PageTransition>
-
-    </>
   );
 }
