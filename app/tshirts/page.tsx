@@ -5,9 +5,27 @@ import { PRODUCTS } from "@/lib/products";
 import Image from "next/image";
 import Link from "next/link";
 import PageTransition from "@/app/components/PageTransition";
+import { useEffect, useState } from "react";
 
+ const heroImages = [
+  "/hero-green.jpg",
+  "/hero-black.jpg",
+  "/hero-pink.jpg",
+];
 
 export default function TshirtsPage() {
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % heroImages.length);
+  }, 4000);
+
+  return () => clearInterval(timer);
+}, []);
+
+  
   return (
 
     <PageTransition>
@@ -17,13 +35,16 @@ export default function TshirtsPage() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
 >
+
+ 
       {/* HERO */}
 <section className="relative h-[60vh] overflow-hidden">
   <Image
-  src="/hero.png"
-  alt="T-Shirts"
+  src={heroImages[currentImage]}
+  alt="Torido Hero"
   fill
-  className="object-cover object-[center_20%]"
+  priority
+  className="object-cover transition-all duration-1000"
 />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
