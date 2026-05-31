@@ -19,14 +19,14 @@ export default function TshirtsPage() {
               href={`/product/${p.id}`}
               className="block rounded-2xl bg-white border shadow-sm overflow-hidden"
             >
-              <div className="relative h-80">
-                <Image
-                  src={p.image}
-                  alt={p.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+<div className="relative h-[600px] bg-white">
+  <Image
+    src={p.image}
+    alt={p.name}
+    fill
+    className="object-contain p-4"
+  />
+</div>
 
               <div className="p-5">
                 <h3>{p.name}</h3>
