@@ -4,9 +4,14 @@ import { motion } from "framer-motion";
 import { PRODUCTS } from "@/lib/products";
 import Image from "next/image";
 import Link from "next/link";
+import PageTransition from "@/app/components/PageTransition";
+
 
 export default function TshirtsPage() {
   return (
+
+    <PageTransition>
+
 <motion.main
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
@@ -187,5 +192,7 @@ overflow-hidden
       </section>
 
     </motion.main>
+    </PageTransition>
+
   );
 }

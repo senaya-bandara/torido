@@ -1,10 +1,13 @@
 
+import PageTransition from "@/app/components/PageTransition";
 import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
 
 export default function HomePage() {
      return (
+
+      <PageTransition>
   <>
  
 
@@ -237,5 +240,9 @@ export default function HomePage() {
 
   
   </>
+  </PageTransition>
+
 );
+
+
 }
