@@ -25,6 +25,7 @@ export default function HomePage() {
 />
 
   <div className="absolute inset-0 bg-black/25" />
+     
 
   <div className="absolute inset-0 flex items-center">
     <div className="max-w-7xl mx-auto px-6 w-full">
@@ -104,16 +105,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHY TORIDO */}
-      <section className="bg-slate-50 py-24">
-        <div className="max-w-7xl mx-auto px-6">
+     {/* WHY TORIDO */}
+<section className="bg-slate-50 py-24">
+  <div
+    className="
+      max-w-7xl
+      mx-auto
+      px-10
+      py-16
+      bg-white
+      rounded-[40px]
+      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+    "
+  >
 
-          <h2 className="text-center text-4xl font-bold mb-16">
-            Why Parents Choose Torido
-          </h2>
+    <h2 className="text-center text-4xl font-bold mb-16">
+      Why Parents Choose Torido
+    </h2>
 
-          <div className="grid md:grid-cols-4 gap-8">
-
+    <div className="grid md:grid-cols-4 gap-8">
+         
             <div className="bg-white p-8 rounded-3xl text-center">
               <h3 className="font-semibold mb-2">
                 Soft Cotton
@@ -143,6 +154,7 @@ export default function HomePage() {
             </div>
 
           </div>
+  </div>
 
         </div>
       </section>
@@ -189,49 +201,120 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* REVIEWS */}
-<section className="bg-slate-50 py-12">
-     
-        <div className="max-w-7xl mx-auto px-6">
+     {/* REVIEWS */}
+<section className="bg-slate-50 py-24">
 
-          <h2 className="text-center text-4xl font-bold mb-16">
-            What Parents Say
-          </h2>
+  <div
+    className="
+      max-w-7xl
+      mx-auto
+      px-10
+      py-16
+      bg-white
+      rounded-[40px]
+      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+    "
+  >
 
-          <div className="grid md:grid-cols-3 gap-8">
+    <h2 className="text-center text-4xl font-bold mb-16">
+      What Parents Say
+    </h2>
 
-            <div className="bg-white p-8 rounded-3xl">
-              ⭐⭐⭐⭐⭐
-              <p className="mt-4">
-                My son loves these shirts. Great quality.
-              </p>
-              <p className="mt-4 font-semibold">
-                — Sarah
-              </p>
-            </div>
+    <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="bg-white p-8 rounded-3xl">
-              ⭐⭐⭐⭐⭐
-              <p className="mt-4">
-                Very soft material and fast delivery.
-              </p>
-              <p className="mt-4 font-semibold">
-                — Nimal
-              </p>
-            </div>
+<div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
 
-            <div className="bg-white p-8 rounded-3xl">
-              ⭐⭐⭐⭐⭐
-              <p className="mt-4">
-                Excellent value for money.
-              </p>
-              <p className="mt-4 font-semibold">
-                — Priya
-              </p>
-            </div>
+  <div className="flex items-center gap-4 mb-5">
 
-          </div>     
+    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-lg font-bold text-green-700">
+      S
+    </div>
 
+    <div>
+      <h4 className="font-semibold">
+        Sarah Perera
+      </h4>
+
+      <p className="text-sm text-slate-500">
+        Colombo
+      </p>
+    </div>
+
+  </div>
+
+  <div className="text-yellow-500 mb-4">
+    ⭐⭐⭐⭐⭐
+  </div>
+
+  <p className="text-slate-600 leading-relaxed">
+    My son absolutely loves these shirts. The fabric is soft,
+    comfortable and still looks new after several washes.
+  </p>
+
+</div>
+         
+
+<div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+  <div className="flex items-center gap-4 mb-5">
+
+    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-lg font-bold text-green-700">
+      S
+    </div>
+
+    <div>
+      <h4 className="font-semibold">
+        Sarah Perera
+      </h4>
+
+      <p className="text-sm text-slate-500">
+        Colombo
+      </p>
+    </div>
+
+  </div>
+
+  <div className="text-yellow-500 mb-4">
+    ⭐⭐⭐⭐⭐
+  </div>
+
+  <p className="text-slate-600 leading-relaxed">
+    My son absolutely loves these shirts. The fabric is soft,
+    comfortable and still looks new after several washes.
+  </p>
+
+</div>
+
+<div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+  <div className="flex items-center gap-4 mb-5">
+
+    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-lg font-bold text-green-700">
+      S
+    </div>
+
+    <div>
+      <h4 className="font-semibold">
+        Sarah Perera
+      </h4>
+
+      <p className="text-sm text-slate-500">
+        Colombo
+      </p>
+    </div>
+
+  </div>
+
+  <div className="text-yellow-500 mb-4">
+    ⭐⭐⭐⭐⭐
+  </div>
+
+  <p className="text-slate-600 leading-relaxed">
+    My son absolutely loves these shirts. The fabric is soft,
+    comfortable and still looks new after several washes.
+  </p>
+
+</div>
         </div>
 
       </section>
