@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
 
-export default function TshirtsPage() {
+export default function HomePage() {
      return (
   <>
     <Navbar />
@@ -224,7 +224,7 @@ export default function TshirtsPage() {
               </p>
             </div>
 
-          </div>
+          </div>     
 
         </div>
 
@@ -235,3 +235,4 @@ export default function TshirtsPage() {
     <Footer />
   </>
 );
+}
