@@ -35,7 +35,7 @@ export default function HomePage() {
           New Collection 2026
         </p>
 
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
           Comfort Made Simple.
         </h1>
 
@@ -61,7 +61,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="relative h-[500px] rounded-3xl overflow-hidden">
+            <div className="relative h-[300px] md:h-[500px] rounded-3xl overflow-hidden">
               <Image
                 src="/product3.png"
                 alt="New Arrival"
@@ -70,7 +70,7 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="relative h-[400px] mt-16 rounded-3xl overflow-hidden">
+            <div className="relative h-[250px] md:h-[400px] mt-16 rounded-3xl overflow-hidden">
               <Image
                 src="/product4.png"
                 alt="New Arrival"
@@ -85,7 +85,7 @@ export default function HomePage() {
               New Arrivals
             </p>
 
-            <h2 className="text-5xl font-bold leading-tight mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
               Fresh styles for little explorers.
             </h2>
 
@@ -111,10 +111,10 @@ export default function HomePage() {
     className="
       max-w-7xl
       mx-auto
-      px-10
-      py-16
+      px-5 md:px-10
+py-10 md:py-16
+rounded-3xl md:rounded-[40px]
       bg-white
-      rounded-[40px]
       shadow-[0_20px_60px_rgba(0,0,0,0.08)]
     "
   >
@@ -123,7 +123,7 @@ export default function HomePage() {
       Why Parents Choose Torido
     </h2>
 
-    <div className="grid md:grid-cols-4 gap-8">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
          
             <div className="bg-white p-8 rounded-3xl text-center">
               <h3 className="font-semibold mb-2">
@@ -220,7 +220,7 @@ export default function HomePage() {
       What Parents Say
     </h2>
 
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-3 gap-5 md:gap-8 ">
 
 <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
 
