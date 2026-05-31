@@ -8,7 +8,7 @@ export default function HomePage() {
      return (
 
       <PageTransition>
-  <>
+  
  
 
     <main>
@@ -318,13 +318,14 @@ export default function HomePage() {
         </div>
 
          </div>
+       
+         </div>
 
       </section>
 
     </main>
 
   
-  </>
   </PageTransition>
 
 );
