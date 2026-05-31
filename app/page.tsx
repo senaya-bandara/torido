@@ -11,12 +11,12 @@ export default function HomePage() {
     <main>
 
       {/* HERO */}
-<section className="relative h-screen overflow-hidden">
-     <Image
-  src={p.image}
-  alt={p.name}
+<Image
+  src="/hero.png"
+  alt="Torido Hero"
   fill
-  className="object-contain bg-white"
+  priority
+  className="object-cover"
 />
 
         <div className="absolute inset-0 bg-black/25" />
@@ -54,7 +54,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-6">
             <div className="relative h-[500px] rounded-3xl overflow-hidden">
               <Image
-                src="/product1.png"
+                src="/product3.png"
                 alt="New Arrival"
                 fill
                 className="object-cover"
@@ -63,7 +63,7 @@ export default function HomePage() {
 
             <div className="relative h-[400px] mt-16 rounded-3xl overflow-hidden">
               <Image
-                src="/product2.png"
+                src="/product4.png"
                 alt="New Arrival"
                 fill
                 className="object-cover"
