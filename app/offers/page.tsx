@@ -9,7 +9,7 @@ export default function OffersPage() {
       <PageTransition>
 
     <>
-      <Navbar />
+   
 
       <main className="max-w-7xl mx-auto px-6 py-24">
         <h1 className="text-4xl font-bold mb-6">Special Offers</h1>
@@ -25,7 +25,7 @@ export default function OffersPage() {
         </div>
       </main>
 
-      <Footer />
+
     </>
       </PageTransition>
 
