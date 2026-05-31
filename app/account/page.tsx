@@ -6,10 +6,13 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+
+import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
+
 
 export default function AccountPage() {
   const router = useRouter();
@@ -22,79 +25,72 @@ export default function AccountPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  async function handleForgotPassword() {
+  if (!email.trim()) {
+    alert("Please enter your email address first.");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+
+    alert(
+      "Password reset email sent. Please check your inbox."
+    );
+  } catch (err: any) {
+    alert(err.message);
+  }
+}
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
 
-    try {
-      if (mode === "signup") {
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+    
+try {
+  if (mode === "signup") {
+    const userCredential =
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-        if (fullName.trim()) {
-          await updateProfile(userCredential.user, {
-            displayName: fullName.trim(),
-          });
-          await userCredential.user.reload();
-        }
+    if (fullName.trim()) {
+      await updateProfile(userCredential.user, {
+        displayName: fullName.trim(),
+      });
 
-        await setDoc(doc(db, "users", userCredential.user.uid), {
-          uid: userCredential.user.uid,
-          fullName: fullName.trim(),
-          email: email.trim(),
-          address: "",
-          contactNumber: "",
-          createdAt: new Date().toISOString(),
-        });
-
-        router.push("/");
-      }  else {
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        
-        if (fullName.trim()) {
-          await updateProfile(userCredential.user, {
-            displayName: fullName.trim(),
-          });
-        }
-      
-        const uid = userCredential.user.uid;
-      
-        router.replace("/");
-      
-        void getDoc(doc(db, "users", uid)).then((userDoc) => {
-          if (!userDoc.exists()) {
-            return setDoc(doc(db, "users", uid), {
-              uid,
-              fullName:
-                userCredential.user.displayName ||
-                userCredential.user.email?.split("@")[0] ||
-                "",
-              email: userCredential.user.email || "",
-              address: "",
-              contactNumber: "",
-              createdAt: new Date().toISOString(),
-            });
-          }
-        });
-      }
-
-
-
-        
-            
-    } catch (err: any) {
-      setError(err?.message || "Something went wrong.");
-    } finally {
-      setLoading(false);
+      await userCredential.user.reload();
     }
+
+    await setDoc(
+      doc(db, "users", userCredential.user.uid),
+      {
+        uid: userCredential.user.uid,
+        fullName: fullName.trim(),
+        email: email.trim(),
+        address: "",
+        contactNumber: "",
+        createdAt: new Date().toISOString(),
+      }
+    );
+
+    router.push("/");
+  } else {
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    router.replace("/");
+  }
+} catch (err: any) {
+  setError(err?.message || "Something went wrong.");
+} finally {
+  setLoading(false);
+}
   }
 
   return (
@@ -171,6 +167,21 @@ export default function AccountPage() {
             required
             className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[var(--primary)] outline-none"
           />
+          {mode === "login" && (
+  <button
+    type="button"
+    onClick={handleForgotPassword}
+    className="
+      w-full
+      text-right
+      text-sm
+      text-[var(--primary)]
+      hover:underline
+    "
+  >
+    Forgot Password?
+  </button>
+)}
 
           {error && (
             <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-xl">
