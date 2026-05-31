@@ -3,11 +3,15 @@ import Footer from "@/app/components/footer";
 import Link from "next/link";
 import Image from "next/image";
 import { BEST_SELLERS } from "@/lib/products";
+import PageTransition from "@/app/components/PageTransition";
+
+
 
 export default function BestSellersPage() {
   return (
     <>
 
+    </PageTransition>
 
       <main className="max-w-7xl mx-auto px-6 py-24">
         <h1 className="text-4xl font-bold mb-8">Best Sellers</h1>
@@ -42,7 +46,8 @@ duration-300
         </div>
       </main>
 
- 
+     </PageTransition>
+
     </>
   );
 }
