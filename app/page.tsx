@@ -314,7 +314,7 @@ export default function HomePage() {
     comfortable and still looks new after several washes.
   </p>
 
-</div>
+
         </div>
 
       </section>
