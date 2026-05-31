@@ -2,6 +2,7 @@
 
 import { auth, db } from "@/lib/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import toast from "react-hot-toast";
 
 export default function AddToCartButton({
   product,
@@ -13,7 +14,7 @@ export default function AddToCartButton({
     const user = auth.currentUser;
 
     if (!user) {
-      alert("Please login first");
+      toast.success("Please login first");
       return;
     }
 
@@ -33,7 +34,7 @@ export default function AddToCartButton({
       items,
     });
 
-    alert("Added to cart!");
+    toast.success("Added to cart");
   };
 
   return (
