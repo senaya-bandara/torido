@@ -12,8 +12,8 @@ export default function HomePage() {
     <main className="pt-16">
 
       {/* HERO */}
-      <section className="relative h-[85vh] overflow-hidden">
-        <Image
+<section className="relative h-[85vh] -mt-1 overflow-hidden">
+     <Image
           src="/hero.jpg"
           alt="Torido Hero"
           fill
