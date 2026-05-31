@@ -7,32 +7,233 @@ import { PRODUCTS } from "@/lib/products";
 export default function TshirtsPage() {
   return (
     <>
-      <Navbar />
+     return (
+  <>
+    <Navbar />
 
-      <main className="max-w-7xl mx-auto px-6 py-24">
-        <h1 className="text-4xl font-bold mb-8">T-Shirts Collection</h1>
+    <main className="pt-16">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.map((p) => (
-            <Link
-              key={p.id}
-              href={`/product/${p.id}`}
-              className="block rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-lg transition"
-            >
-              <div className="relative h-80">
-                <Image src={p.image} alt={p.name} fill className="object-cover" />
-              </div>
+      {/* HERO */}
+      <section className="relative h-[85vh] overflow-hidden">
+        <Image
+          src="/hero.jpg"
+          alt="Torido Hero"
+          fill
+          priority
+          className="object-cover"
+        />
 
-              <div className="p-5">
-                <h3 className="font-semibold">{p.name}</h3>
-                <p className="mt-1">{p.price}</p>
-              </div>
-            </Link>
-          ))}
+        <div className="absolute inset-0 bg-black/25" />
+
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="max-w-xl text-white">
+              <p className="uppercase tracking-[0.25em] mb-4">
+                New Collection 2026
+              </p>
+
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                Comfort Made Simple.
+              </h1>
+
+              <p className="mt-6 text-lg">
+                Premium cotton tees for kids.
+              </p>
+
+              <Link
+                href="/tshirts"
+                className="inline-block mt-8 bg-white text-black px-8 py-4 rounded-xl font-semibold"
+              >
+                Shop Collection
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
 
-      <Footer />
-    </>
-  );
-}
+      {/* NEW ARRIVALS */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+
+          <div className="grid grid-cols-2 gap-6">
+            <div className="relative h-[500px] rounded-3xl overflow-hidden">
+              <Image
+                src="/product1.jpg"
+                alt="New Arrival"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative h-[400px] mt-16 rounded-3xl overflow-hidden">
+              <Image
+                src="/product2.png"
+                alt="New Arrival"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div>
+            <p className="uppercase tracking-[0.2em] text-green-600 mb-4">
+              New Arrivals
+            </p>
+
+            <h2 className="text-5xl font-bold leading-tight mb-6">
+              Fresh styles for little explorers.
+            </h2>
+
+            <p className="text-slate-600 text-lg mb-8">
+              Discover our newest collection designed for comfort,
+              play and everyday adventures.
+            </p>
+
+            <Link
+              href="/new"
+              className="inline-block bg-green-600 text-white px-8 py-4 rounded-xl"
+            >
+              Shop New Arrivals
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      {/* WHY TORIDO */}
+      <section className="bg-slate-50 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-center text-4xl font-bold mb-16">
+            Why Parents Choose Torido
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+
+            <div className="bg-white p-8 rounded-3xl text-center">
+              <h3 className="font-semibold mb-2">
+                Soft Cotton
+              </h3>
+              <p>Comfortable for everyday wear.</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl text-center">
+              <h3 className="font-semibold mb-2">
+                Safe Materials
+              </h3>
+              <p>Designed with kids in mind.</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl text-center">
+              <h3 className="font-semibold mb-2">
+                Cash On Delivery
+              </h3>
+              <p>Pay when your order arrives.</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl text-center">
+              <h3 className="font-semibold mb-2">
+                Islandwide Delivery
+              </h3>
+              <p>Fast shipping across Sri Lanka.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* BEST SELLER */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+        <h2 className="text-4xl font-bold mb-12">
+          Best Seller
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+
+          <div className="relative h-[600px] rounded-3xl overflow-hidden">
+            <Image
+              src={BEST_SELLERS[0].image}
+              alt={BEST_SELLERS[0].name}
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div>
+            <p className="uppercase tracking-[0.2em] text-green-600 mb-4">
+              Most Loved
+            </p>
+
+            <h3 className="text-5xl font-bold mb-4">
+              {BEST_SELLERS[0].name}
+            </h3>
+
+            <p className="text-2xl mb-8">
+              {BEST_SELLERS[0].price}
+            </p>
+
+            <Link
+              href={`/product/${BEST_SELLERS[0].id}`}
+              className="bg-green-600 text-white px-8 py-4 rounded-xl inline-block"
+            >
+              View Product
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="bg-slate-50 py-24">
+
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-center text-4xl font-bold mb-16">
+            What Parents Say
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="bg-white p-8 rounded-3xl">
+              ⭐⭐⭐⭐⭐
+              <p className="mt-4">
+                My son loves these shirts. Great quality.
+              </p>
+              <p className="mt-4 font-semibold">
+                — Sarah
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl">
+              ⭐⭐⭐⭐⭐
+              <p className="mt-4">
+                Very soft material and fast delivery.
+              </p>
+              <p className="mt-4 font-semibold">
+                — Nimal
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl">
+              ⭐⭐⭐⭐⭐
+              <p className="mt-4">
+                Excellent value for money.
+              </p>
+              <p className="mt-4 font-semibold">
+                — Priya
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <Footer />
+  </>
+);
