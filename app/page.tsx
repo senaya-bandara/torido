@@ -1,5 +1,4 @@
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/footer";
+
 import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
@@ -232,7 +231,7 @@ export default function HomePage() {
 
     </main>
 
-    <Footer />
+  
   </>
 );
 }
