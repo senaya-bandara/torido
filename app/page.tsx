@@ -55,7 +55,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-6">
             <div className="relative h-[500px] rounded-3xl overflow-hidden">
               <Image
-                src="/product1.jpg"
+                src="/product1.png"
                 alt="New Arrival"
                 fill
                 className="object-cover"
