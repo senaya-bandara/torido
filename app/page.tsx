@@ -6,7 +6,7 @@ import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
 export default function HomePage() {
      return (
   <>
-    <Navbar />
+ 
 
     <main className="pt-16">
 
