@@ -16,7 +16,7 @@ export default function TshirtsPage() {
       {/* HERO */}
       <section className="relative h-[60vh] -mt-20 overflow-hidden">
         <Image
-  src="/hero-tshirt.png"
+  src="/hero.png"
   alt="T-Shirts"
   fill
   className="object-cover object-[center_20%]"
