@@ -40,10 +40,7 @@ export default function Navbar() {
 
   return (
 <header
-  className="
-bg-white
-border-b
-"
+  className="bg-white"
 >      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center">
         <Link href="/" className="flex items-center">
           <Image
