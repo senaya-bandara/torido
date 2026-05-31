@@ -17,7 +17,17 @@ export default function BestSellersPage() {
             <Link
               key={p.id}
               href={`/product/${p.id}`}
-              className="block rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-lg transition"
+              className="
+block
+rounded-3xl
+bg-white
+overflow-hidden
+shadow-md
+hover:shadow-2xl
+hover:-translate-y-2
+transition-all
+duration-300
+"
             >
               <div className="relative h-80">
                 <Image src={p.image} alt={p.name} fill className="object-cover" />
