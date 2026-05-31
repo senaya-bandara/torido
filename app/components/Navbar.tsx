@@ -27,9 +27,28 @@ export default function Navbar() {
     return () => unsubscribe();
   }, []);
 
-  useEffect(() => {
-  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  setCartCount(cart.length);
+ useEffect(() => {
+  const updateCart = () => {
+    const cart = JSON.parse(
+      localStorage.getItem("cart") || "[]"
+    );
+
+    setCartCount(cart.length);
+  };
+
+  updateCart();
+
+  window.addEventListener(
+    "cartUpdated",
+    updateCart
+  );
+
+  return () => {
+    window.removeEventListener(
+      "cartUpdated",
+      updateCart
+    );
+  };
 }, []);
   
   useEffect(() => {
