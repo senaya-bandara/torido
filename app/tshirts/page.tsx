@@ -25,8 +25,8 @@ export default function TshirtsPage() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
 
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-6 w-full">
+<div className="absolute inset-0 flex items-center pt-16">
+  <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-xl text-white">
               <p className="uppercase tracking-[0.25em] mb-4">
                 Premium Kids Collection
