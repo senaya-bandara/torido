@@ -1,9 +1,13 @@
 
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/footer";
+import PageTransition from "@/app/components/PageTransition";
 
 export default function OffersPage() {
   return (
+
+      <PageTransition>
+
     <>
       <Navbar />
 
@@ -23,5 +27,7 @@ export default function OffersPage() {
 
       <Footer />
     </>
+      </PageTransition>
+
   );
 }
