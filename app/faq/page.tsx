@@ -1,13 +1,10 @@
-
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/footer";
 import PageTransition from "@/app/components/PageTransition";
 
 export default function FAQPage() {
   return (
-      <PageTransition>
-
-    <>
+    <PageTransition>
       <Navbar />
 
       <main className="max-w-5xl mx-auto px-6 py-24">
@@ -47,6 +44,5 @@ export default function FAQPage() {
 
       <Footer />
     </PageTransition>
-    </>
   );
 }
