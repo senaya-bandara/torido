@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/footer";
@@ -20,16 +21,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+  <body className={inter.className}>
+    <Toaster position="top-right" />
 
-        <Script
-          src="//code.tidio.co/vmlacny5uau1j4unbc61xfj9wnfq0uiq.js"
-          strategy="afterInteractive"
-        />
-      </body>
-    </html>
+    <Navbar />
+
+    <main>{children}</main>
+
+    <Footer />
+
+    <Script
+      src="//code.tidio.co/vmlacny5uau1j4unbc61xfj9wnfq0uiq.js"
+      strategy="afterInteractive"
+    />
+  </body>
+</html>
   );
 }
