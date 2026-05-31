@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "/hero-green.jpg",
-  "/hero-black.jpg",
-  "/hero-pink.jpg",
+  "/product1.png",
+  "/product2.png",
+  "/product3.png",
 ];
 
 export default function TshirtsHeroSlider() {
