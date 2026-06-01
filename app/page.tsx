@@ -21,6 +21,10 @@ export default function HomePage() {
   alt="Torido Hero"
   fill
   priority
+  className="
+    object-cover
+    object-top
+    md:object-center
   "
 />
 
