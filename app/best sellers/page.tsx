@@ -34,7 +34,7 @@ duration-300
 "
             >
               <div className="relative h-80">
-                <Image src={p.image} alt={p.name} fill className="object-cover" />
+                <Image src={p.image} alt={p.name} fill     className="object-cover object-top" />
               </div>
 
               <div className="p-5">
