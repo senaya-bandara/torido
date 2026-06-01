@@ -12,6 +12,8 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
@@ -27,26 +29,43 @@ export default function Navbar() {
     return () => unsubscribe();
   }, []);
 
- useEffect(() => {
-  const updateCart = () => {
-    const cart = JSON.parse(
-      localStorage.getItem("cart") || "[]"
+useEffect(() => {
+  async function loadCartCount() {
+    const user = auth.currentUser;
+
+    if (!user) {
+      setCartCount(0);
+      return;
+    }
+
+    const snap = await getDoc(
+      doc(db, "carts", user.uid)
     );
 
-    setCartCount(cart.length);
-  };
+    if (snap.exists()) {
+      const items = snap.data().items || [];
 
-  updateCart();
+      const totalQty = items.reduce(
+        (sum: number, item: any) =>
+          sum + (item.quantity || 1),
+        0
+      );
+
+      setCartCount(totalQty);
+    }
+  }
+
+  loadCartCount();
 
   window.addEventListener(
     "cartUpdated",
-    updateCart
+    loadCartCount
   );
 
   return () => {
     window.removeEventListener(
       "cartUpdated",
-      updateCart
+      loadCartCount
     );
   };
 }, []);
