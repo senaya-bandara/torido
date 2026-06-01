@@ -35,7 +35,8 @@ duration-300
                   src={p.image}
                   alt={p.name}
                   fill
-                  className="object-cover"
+                 className="object-cover object-top"
+
                 />
               </div>
 
