@@ -3,7 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { auth, db } from "@/lib/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  addDoc,
+  collection,
+} from "firebase/firestore";
 import toast from "react-hot-toast";
 
 export default function CartPage() {
@@ -51,8 +57,7 @@ export default function CartPage() {
       item.id === id
         ? {
             ...item,
-            quantity:
-              (item.quantity || 1) + 1,
+            quantity: (item.quantity || 1) + 1,
           }
         : item
     );
@@ -87,27 +92,91 @@ export default function CartPage() {
   }
 
   async function clearCart() {
-    await saveCart([]);
+    const user = auth.currentUser;
+
+    if (!user) return;
+
+    await setDoc(
+      doc(db, "carts", user.uid),
+      {
+        items: [],
+      }
+    );
+
+    setCart([]);
+
+    window.dispatchEvent(
+      new Event("cartUpdated")
+    );
 
     toast.success("Cart emptied");
   }
 
-  const total = cart.reduce(
-    (sum, item) => {
-      const price = Number(
-        String(item.price).replace(
-          /[^\d]/g,
-          ""
-        )
+  const total = cart.reduce((sum, item) => {
+    const price = Number(
+      String(item.price).replace(/[^\d]/g, "")
+    );
+
+    return sum + price * (item.quantity || 1);
+  }, 0);
+
+  async function requestOrder() {
+    const user = auth.currentUser;
+
+    if (!user) {
+      toast.error("Please login first");
+      return;
+    }
+
+    try {
+      const order = {
+        userId: user.uid,
+        email: user.email,
+        items: cart,
+        total,
+        status: "Pending",
+        createdAt: new Date(),
+      };
+
+      await addDoc(
+        collection(db, "orders"),
+        order
       );
 
-      return (
-        sum +
-        price * (item.quantity || 1)
+      const message = `
+Hello Torido,
+
+I would like to place an order.
+
+${cart
+  .map(
+    (item) =>
+      `• ${item.name} x ${item.quantity || 1}`
+  )
+  .join("\n")}
+
+Total: Rs ${total.toLocaleString()}
+
+Name:
+Phone:
+Address:
+`;
+
+      window.open(
+        `https://wa.me/94769737089?text=${encodeURIComponent(
+          message
+        )}`,
+        "_blank"
       );
-    },
-    0
-  );
+
+      toast.success("Order submitted");
+
+      await clearCart();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to submit order");
+    }
+  }
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-24">
@@ -135,11 +204,13 @@ export default function CartPage() {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="font-semibold">
+                  <h3 className="font-semibold text-lg">
                     {item.name}
                   </h3>
 
-                  <p>{item.price}</p>
+                  <p className="text-slate-600">
+                    {item.price}
+                  </p>
 
                   <div className="flex gap-3 mt-3 items-center">
                     <button
@@ -151,7 +222,7 @@ export default function CartPage() {
                       -
                     </button>
 
-                    <span>
+                    <span className="font-medium">
                       {item.quantity || 1}
                     </span>
 
@@ -170,7 +241,7 @@ export default function CartPage() {
                   onClick={() =>
                     removeItem(item.id)
                   }
-                  className="text-red-500"
+                  className="text-red-500 hover:text-red-700"
                 >
                   Remove
                 </button>
@@ -179,20 +250,35 @@ export default function CartPage() {
           </div>
 
           <div className="mt-10">
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-3xl font-bold">
               Total: Rs {total.toLocaleString()}
             </h2>
 
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 mt-6 flex-wrap">
               <button
                 onClick={clearCart}
-                className="px-6 py-3 rounded-xl bg-red-500 text-white"
+                className="
+                  px-6
+                  py-3
+                  rounded-xl
+                  bg-red-500
+                  text-white
+                  hover:bg-red-600
+                "
               >
                 Empty Cart
               </button>
 
               <button
-                className="px-6 py-3 rounded-xl bg-green-600 text-white"
+                onClick={requestOrder}
+                className="
+                  px-6
+                  py-3
+                  rounded-xl
+                  bg-green-600
+                  text-white
+                  hover:bg-green-700
+                "
               >
                 Request Order
               </button>
