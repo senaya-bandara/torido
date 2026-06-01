@@ -9,32 +9,54 @@ export default function AddToCartButton({
 }: {
   product: any;
 }) {
-
   const addToCart = async () => {
     const user = auth.currentUser;
 
     if (!user) {
-      toast.success("Please login first");
+      toast.error("Please login first");
       return;
     }
 
-    const cartRef = doc(db, "carts", user.uid);
+    try {
+      const cartRef = doc(db, "carts", user.uid);
 
-    const cartSnap = await getDoc(cartRef);
+      const cartSnap = await getDoc(cartRef);
 
-    let items = [];
+      let items: any[] = [];
 
-    if (cartSnap.exists()) {
-      items = cartSnap.data().items || [];
+      if (cartSnap.exists()) {
+        items = cartSnap.data().items || [];
+      }
+
+      const existingItem = items.find(
+        (item: any) => item.id === product.id
+      );
+
+      if (existingItem) {
+        existingItem.quantity =
+          (existingItem.quantity || 1) + 1;
+      } else {
+        items.push({
+          ...product,
+          quantity: 1,
+        });
+      }
+
+      await setDoc(cartRef, {
+        items,
+      });
+
+      window.dispatchEvent(
+        new Event("cartUpdated")
+      );
+
+      toast.success(
+        `${product.name} added to cart`
+      );
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to add item");
     }
-
-    items.push(product);
-
-    await setDoc(cartRef, {
-      items,
-    });
-
-    toast.success("Added to cart");
   };
 
   return (
