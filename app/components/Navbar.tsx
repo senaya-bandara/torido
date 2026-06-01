@@ -280,22 +280,22 @@ className="
       {mobileMenuOpen && (
         <div className="md:hidden border-t px-4 py-4 bg-white">
           <div className="flex flex-col gap-4 text-sm font-semibold uppercase">
-            <Link href="/#products" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/tshirts" onClick={() => setMobileMenuOpen(false)}>
               T-Shirts
             </Link>
-            <Link href="/#new" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/new" onClick={() => setMobileMenuOpen(false)}>
               New
             </Link>
-            <Link href="/#best" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/best sellers" onClick={() => setMobileMenuOpen(false)}>
               Best Sellers
             </Link>
-            <Link href="/#offers" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/offer" onClick={() => setMobileMenuOpen(false)}>
               Offers
             </Link>
-            <Link href="/#faq" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/faq" onClick={() => setMobileMenuOpen(false)}>
               FAQ
             </Link>
-            <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
               Contact
             </Link>
 
