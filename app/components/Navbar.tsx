@@ -292,6 +292,9 @@ className="
             <Link href="/offer" onClick={() => setMobileMenuOpen(false)}>
               Offers
             </Link>
+          <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
+  Cart
+</Link>
             <Link href="/faq" onClick={() => setMobileMenuOpen(false)}>
               FAQ
             </Link>
