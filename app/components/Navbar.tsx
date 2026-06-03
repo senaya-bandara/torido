@@ -119,57 +119,99 @@ useEffect(() => {
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        <nav className="hidden md:flex mx-auto gap-10 text-sm font-medium tracking-wide">
-     <Link
-  href="/tshirts"
-  className="
-    relative
-    text-slate-700
-    hover:text-green-600
-    transition-colors
-    duration-300
-    after:absolute
-    after:left-0
-    after:-bottom-2
-    after:h-[2px]
-    after:w-0
-    after:bg-green-600
-    after:transition-all
-    after:duration-300
-    hover:after:w-full
-  "
->
-  T-Shirts
-         </Link>
-<Link
-  href="/new"
-  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
->
-  New
-</Link>
+        <nav className="hidden md:flex mx-auto gap-3">
 
-<Link
-  href="/best-sellers"
-  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
->
-  Best Sellers
-</Link>
+  <Link
+    href="/tshirts"
+    className="
+      px-5
+      py-2.5
+      rounded-2xl
+      bg-slate-50
+      hover:bg-green-50
+      hover:text-green-600
+      transition-all
+      duration-300
+      font-medium
+      text-slate-700
+    "
+  >
+    T-Shirts
+  </Link>
 
-<Link
-  href="/offers"
-  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
->
-  Offers
-</Link>
+  <Link
+    href="/new"
+    className="
+      px-5
+      py-2.5
+      rounded-2xl
+      bg-slate-50
+      hover:bg-green-50
+      hover:text-green-600
+      transition-all
+      duration-300
+      font-medium
+      text-slate-700
+    "
+  >
+    New
+  </Link>
 
-<Link
-  href="/faq"
-  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
->
-  FAQ
-</Link>
-        </nav>
+  <Link
+    href="/best-sellers"
+    className="
+      px-5
+      py-2.5
+      rounded-2xl
+      bg-slate-50
+      hover:bg-green-50
+      hover:text-green-600
+      transition-all
+      duration-300
+      font-medium
+      text-slate-700
+    "
+  >
+    Best Sellers
+  </Link>
 
+  <Link
+    href="/offers"
+    className="
+      px-5
+      py-2.5
+      rounded-2xl
+      bg-slate-50
+      hover:bg-green-50
+      hover:text-green-600
+      transition-all
+      duration-300
+      font-medium
+      text-slate-700
+    "
+  >
+    Offers
+  </Link>
+
+  <Link
+    href="/faq"
+    className="
+      px-5
+      py-2.5
+      rounded-2xl
+      bg-slate-50
+      hover:bg-green-50
+      hover:text-green-600
+      transition-all
+      duration-300
+      font-medium
+      text-slate-700
+    "
+  >
+    FAQ
+  </Link>
+
+</nav>
         <div className="hidden md:flex items-center gap-4 ml-auto">
 <div className="
   flex
