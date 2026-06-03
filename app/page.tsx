@@ -6,15 +6,8 @@ import Image from "next/image";
 import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
 
 export default function HomePage() {
-     return (
 
-      <PageTransition>
-  
- 
-
-    <main>
-
-         const heroImages = [
+            const heroImages = [
   "/hero1.png",
   "/hero2.png",
   "/hero3.png",
@@ -29,6 +22,15 @@ useEffect(() => {
 
   return () => clearInterval(interval);
 }, []);
+     return (
+
+      <PageTransition>
+  
+ 
+
+    <main>
+
+  
 
      {/* HERO */}
 <section className="relative h-screen overflow-hidden">
