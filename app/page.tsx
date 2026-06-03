@@ -123,69 +123,86 @@ export default function HomePage() {
             </p>
 
             <Link
-              href="/new"
-              className="inline-block bg-green-600 text-white px-8 py-4 rounded-xl"
-            >
-              Shop New Arrivals
-            </Link>
+  href="/new"
+  className="
+    inline-flex
+    items-center
+    justify-center
+    bg-[#7BC043]
+    hover:bg-[#69b035]
+    text-white
+    px-8
+    py-4
+    rounded-full
+    font-medium
+    transition-all
+    duration-300
+    shadow-sm
+    hover:shadow-md
+  "
+>
+  Shop New Arrivals
+</Link>
           </div>
 
         </div>
       </section>
 
-     {/* WHY TORIDO */}
+    {/* WHY TORIDO */}
 <section className="bg-slate-50 py-24">
-  <div
-    className="
-      max-w-7xl
-      mx-auto
-      px-5 md:px-10
-py-10 md:py-16
-rounded-3xl md:rounded-[40px]
-      bg-white
-      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-    "
-  >
+  <div className="max-w-7xl mx-auto px-6">
 
-    <h2 className="text-center text-4xl font-bold mb-16">
-      Why Parents Choose Torido
-    </h2>
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+        Why Parents Choose Torido
+      </h2>
+      <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
+        Premium quality kidswear designed for comfort, durability and everyday adventures.
+      </p>
+    </div>
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-         
-            <div className="bg-white p-8 rounded-3xl text-center">
-              <h3 className="font-semibold mb-2">
-                Soft Cotton
-              </h3>
-              <p>Comfortable for everyday wear.</p>
-            </div>
+    <div className="grid md:grid-cols-4 gap-6">
 
-            <div className="bg-white p-8 rounded-3xl text-center">
-              <h3 className="font-semibold mb-2">
-                Safe Materials
-              </h3>
-              <p>Designed with kids in mind.</p>
-            </div>
+      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 className="text-xl font-semibold mb-3">
+          Soft Cotton
+        </h3>
+        <p className="text-slate-600">
+          Breathable premium cotton that keeps kids comfortable throughout the day.
+        </p>
+      </div>
 
-            <div className="bg-white p-8 rounded-3xl text-center">
-              <h3 className="font-semibold mb-2">
-                Cash On Delivery
-              </h3>
-              <p>Pay when your order arrives.</p>
-            </div>
+      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 className="text-xl font-semibold mb-3">
+          Safe Materials
+        </h3>
+        <p className="text-slate-600">
+          Carefully selected fabrics that are gentle on children's skin.
+        </p>
+      </div>
 
-            <div className="bg-white p-8 rounded-3xl text-center">
-              <h3 className="font-semibold mb-2">
-                Islandwide Delivery
-              </h3>
-              <p>Fast shipping across Sri Lanka.</p>
-            </div>
+      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 className="text-xl font-semibold mb-3">
+          Cash On Delivery
+        </h3>
+        <p className="text-slate-600">
+          Convenient payment option available across Sri Lanka.
+        </p>
+      </div>
 
-          </div>
-  
+      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 className="text-xl font-semibold mb-3">
+          Islandwide Delivery
+        </h3>
+        <p className="text-slate-600">
+          Reliable delivery service reaching customers nationwide.
+        </p>
+      </div>
 
-        </div>
-      </section>
+    </div>
+
+  </div>
+</section>
 
       {/* BEST SELLER */}
       <section className="max-w-7xl mx-auto px-6 py-24">
@@ -220,7 +237,22 @@ rounded-3xl md:rounded-[40px]
 
             <Link
               href={`/product/${BEST_SELLERS[0].id}`}
-              className="bg-green-600 text-white px-8 py-4 rounded-xl inline-block"
+              className="
+    inline-flex
+    items-center
+    justify-center
+    bg-[#7BC043]
+    hover:bg-[#69b035]
+    text-white
+    px-8
+    py-4
+    rounded-full
+    font-medium
+    transition-all
+    duration-300
+    shadow-sm
+    hover:shadow-md
+  "
             >
               View Product
             </Link>
