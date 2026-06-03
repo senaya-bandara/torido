@@ -1,5 +1,6 @@
 
 import PageTransition from "@/app/components/PageTransition";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
@@ -13,73 +14,119 @@ export default function HomePage() {
 
     <main>
 
+         const heroImages = [
+  "/hero1.png",
+  "/hero2.png",
+  "/hero3.png",
+];
+
+const [currentImage, setCurrentImage] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % heroImages.length);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
+
      {/* HERO */}
 <section className="relative h-screen overflow-hidden">
 
-<Image
-  src="/hero.png"
-  alt="Torido Hero"
-  fill
-  priority
-  className="
-    object-cover
-    object-top
-    md:object-center
-  "
-/>
- <div
+  {/* Background Images */}
+  {heroImages.map((image, index) => (
+    <Image
+      key={image}
+      src={image}
+      alt="Torido Hero"
+      fill
+      priority
+      className={`
+        object-cover
+        object-top
+        md:object-center
+        absolute
+        inset-0
+        transition-opacity
+        duration-1000
+        ${index === currentImage ? "opacity-100" : "opacity-0"}
+      `}
+    />
+  ))}
+
+  {/* Dark Overlay */}
+  <div
     className="
       absolute
       inset-0
       bg-gradient-to-r
-      from-black/35
-      via-black/10
+      from-black/50
+      via-black/15
       to-transparent
       z-10
     "
   />
-     
 
-<div className="absolute inset-0 flex items-center z-20">
-     <div className="max-w-7xl mx-auto px-6 w-full">
+  {/* Content */}
+  <div className="absolute inset-0 flex items-center z-20">
+    <div className="max-w-7xl mx-auto px-6 w-full">
+
       <div className="max-w-xl text-white">
 
         <p className="uppercase tracking-[0.25em] mb-4">
-          New Collection 2026
+          NEW COLLECTION 2026
         </p>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-          Comfort Made Simple.
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.95]">
+          Comfort Made
+          <br />
+          Simple.
         </h1>
 
-        <p className="mt-6 text-lg">
+        <p className="mt-6 text-lg text-white/90">
           Premium cotton tees for kids.
         </p>
 
-      <Link
-  href="/tshirts"
-  className="
-    inline-block
-    mt-8
-    bg-[#7BC043]
-    hover:bg-[#69b035]
-    text-white
-    px-8
-    py-4
-    rounded-xl
-    font-semibold
-    transition-all
-    duration-300
-    shadow-md
-    hover:shadow-lg
-  "
->
-  Shop Collection
-</Link>
-         
+        <Link
+          href="/tshirts"
+          className="
+            inline-block
+            mt-8
+            bg-[#7BC043]
+            hover:bg-[#69b035]
+            text-white
+            px-8
+            py-4
+            rounded-xl
+            font-semibold
+            transition-all
+            duration-300
+            shadow-md
+          "
+        >
+          Shop Collection
+        </Link>
 
       </div>
     </div>
+  </div>
+
+  {/* Slider Dots */}
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+    {heroImages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentImage(index)}
+        className={`
+          w-3 h-3 rounded-full transition-all
+          ${
+            index === currentImage
+              ? "bg-white"
+              : "bg-white/40"
+          }
+        `}
+      />
+    ))}
   </div>
 
 </section>
@@ -151,9 +198,11 @@ export default function HomePage() {
     {/* WHY TORIDO */}
 <section
   className="relative py-24 bg-cover bg-center"
-  style={{
-    backgroundImage: "url('/bg.png')",
-  }}
+ style={{
+      backgroundImage: "url('/bg.png')",
+      opacity: 0.06,
+      filter: "blur(4px)",
+    }}
 >
   <div className="max-w-7xl mx-auto px-6">
 
