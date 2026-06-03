@@ -149,7 +149,12 @@ export default function HomePage() {
       </section>
 
     {/* WHY TORIDO */}
-<section className="bg-slate-50 py-24">
+<section
+  className="relative py-24 bg-cover bg-center"
+  style={{
+    backgroundImage: "url('/bg.png')",
+  }}
+>
   <div className="max-w-7xl mx-auto px-6">
 
     <div className="text-center mb-16">
