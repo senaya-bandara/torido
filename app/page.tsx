@@ -38,11 +38,10 @@ export default function HomePage() {
       z-10
     "
   />
-  <div className="absolute inset-0 bg-black/25" />
      
 
-  <div className="absolute inset-0 flex items-center">
-    <div className="max-w-7xl mx-auto px-6 w-full">
+<div className="absolute inset-0 flex items-center z-20">
+     <div className="max-w-7xl mx-auto px-6 w-full">
       <div className="max-w-xl text-white">
 
         <p className="uppercase tracking-[0.25em] mb-4">
