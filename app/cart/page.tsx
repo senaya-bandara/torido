@@ -163,7 +163,7 @@ Address:
 `;
 
       window.open(
-        `https://wa.me/94769737089?text=${encodeURIComponent(
+        `https://wa.me/94781885192?text=${encodeURIComponent(
           message
         )}`,
         "_blank"
