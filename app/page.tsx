@@ -9,8 +9,8 @@ export default function HomePage() {
 
             const heroImages = [
   "/hero.png",
+  "/hero1.png",
   "/hero2.png",
-  "/hero3.png",
 ];
 
 const [currentImage, setCurrentImage] = useState(0);
@@ -18,7 +18,7 @@ const [currentImage, setCurrentImage] = useState(0);
 useEffect(() => {
   const interval = setInterval(() => {
     setCurrentImage((prev) => (prev + 1) % heroImages.length);
-  }, 5000);
+  }, 3000);
 
   return () => clearInterval(interval);
 }, []);
@@ -50,7 +50,7 @@ useEffect(() => {
   absolute
   inset-0
   transition-opacity
-  duration-500
+  duration-1000
   ${index === currentImage ? "opacity-100" : "opacity-0"}
 `}
     />
