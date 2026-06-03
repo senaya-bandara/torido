@@ -54,27 +54,7 @@ export default function HomePage() {
           Shop Collection
         </Link>
 
-           <div className="mt-6 flex flex-wrap gap-3">
-  <Link href="/tshirts" className="px-4 py-2 bg-white rounded-xl font-medium">
-    T-Shirts
-  </Link>
-
-  <Link href="/new" className="px-4 py-2 bg-white rounded-xl font-medium">
-    New
-  </Link>
-
-  <Link href="/best-sellers" className="px-4 py-2 bg-white rounded-xl font-medium">
-    Best Sellers
-  </Link>
-
-  <Link href="/offers" className="px-4 py-2 bg-white rounded-xl font-medium">
-    Offers
-  </Link>
-
-  <Link href="/faq" className="px-4 py-2 bg-white rounded-xl font-medium">
-    FAQ
-  </Link>
-</div>
+         
 
       </div>
     </div>
