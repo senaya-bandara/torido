@@ -119,21 +119,19 @@ useEffect(() => {
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        <nav className="hidden md:flex mx-auto gap-3">
+       <nav className="hidden md:flex mx-auto gap-2">
 
   <Link
     href="/tshirts"
     className="
-      px-5
-      py-2.5
-      rounded-2xl
-      bg-slate-50
-      hover:bg-green-50
-      hover:text-green-600
-      transition-all
-      duration-300
+      px-4
+      py-2
+      rounded-full
+      text-sm
       font-medium
       text-slate-700
+      hover:bg-slate-100
+      transition
     "
   >
     T-Shirts
@@ -142,16 +140,14 @@ useEffect(() => {
   <Link
     href="/new"
     className="
-      px-5
-      py-2.5
-      rounded-2xl
-      bg-slate-50
-      hover:bg-green-50
-      hover:text-green-600
-      transition-all
-      duration-300
+      px-4
+      py-2
+      rounded-full
+      text-sm
       font-medium
       text-slate-700
+      hover:bg-slate-100
+      transition
     "
   >
     New
@@ -160,16 +156,14 @@ useEffect(() => {
   <Link
     href="/best-sellers"
     className="
-      px-5
-      py-2.5
-      rounded-2xl
-      bg-slate-50
-      hover:bg-green-50
-      hover:text-green-600
-      transition-all
-      duration-300
+      px-4
+      py-2
+      rounded-full
+      text-sm
       font-medium
       text-slate-700
+      hover:bg-slate-100
+      transition
     "
   >
     Best Sellers
@@ -178,16 +172,14 @@ useEffect(() => {
   <Link
     href="/offers"
     className="
-      px-5
-      py-2.5
-      rounded-2xl
-      bg-slate-50
-      hover:bg-green-50
-      hover:text-green-600
-      transition-all
-      duration-300
+      px-4
+      py-2
+      rounded-full
+      text-sm
       font-medium
       text-slate-700
+      hover:bg-slate-100
+      transition
     "
   >
     Offers
@@ -196,16 +188,14 @@ useEffect(() => {
   <Link
     href="/faq"
     className="
-      px-5
-      py-2.5
-      rounded-2xl
-      bg-slate-50
-      hover:bg-green-50
-      hover:text-green-600
-      transition-all
-      duration-300
+      px-4
+      py-2
+      rounded-full
+      text-sm
       font-medium
       text-slate-700
+      hover:bg-slate-100
+      transition
     "
   >
     FAQ
