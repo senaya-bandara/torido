@@ -154,7 +154,7 @@ useEffect(() => {
   </Link>
 
   <Link
-    href="/best-sellers"
+    href="/best sellers"
     className="
       px-4
       py-2
