@@ -121,17 +121,8 @@ useEffect(() => {
 
           <div className="flex gap-3 flex-wrap">
 
-            <span className="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">
-              New Arrivals
-            </span>
+         
 
-            <span className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
-              Best Sellers
-            </span>
-
-            <span className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
-              Cotton Tees
-            </span>
 
           </div>
 
@@ -212,13 +203,13 @@ useEffect(() => {
                 Limited time offer on selected Torido collections.
               </p>
 
-              <button className="mt-8 bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
-                Shop Offers
-              </button>
+             
             </div>
 
             <div className="text-center text-8xl">
-              🎉
+               <button className="mt-8 bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
+                Shop Offers
+              </button>
             </div>
 
           </div>
