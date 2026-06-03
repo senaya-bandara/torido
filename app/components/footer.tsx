@@ -1,14 +1,22 @@
 export default function Footer() {
     return (
-      <footer className="bg-slate-100 border-t mt-20">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
+<footer className="bg-slate-100 mt-20">
+    <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
           
-          <div>
-            <h3 className="font-semibold text-lg">Torido</h3>
-            <p className="mt-3 text-slate-600">
-              Premium cotton kidswear designed for comfort and play.
-            </p>
-          </div>
+         import Image from "next/image";
+        <div>
+  <Image
+    src="/logo.png"
+    alt="Torido"
+    width={180}
+    height={60}
+    className="mb-4"
+  />
+
+  <p className="text-slate-600">
+    Premium cotton kidswear designed for comfort and play.
+  </p>
+</div>
   
           <div>
             <h4 className="font-semibold mb-3">Support</h4>
