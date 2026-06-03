@@ -44,15 +44,15 @@ useEffect(() => {
       fill
       priority
       className={`
-        object-cover
-        object-top
-        md:object-center
-        absolute
-        inset-0
-        transition-
-        duration-1000
-        ${index === currentImage ? "-100" : "-0"}
-      `}
+  object-cover
+  object-top
+  md:object-center
+  absolute
+  inset-0
+  transition-opacity
+  duration-1000
+  ${index === currentImage ? "opacity-100" : "opacity-0"}
+`}
     />
   ))}
 
@@ -263,7 +263,7 @@ useEffect(() => {
       </div>
 
     </div>
-
+ </div>
   </div>
 </section>
 
