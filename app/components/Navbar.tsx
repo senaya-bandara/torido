@@ -140,6 +140,7 @@ useEffect(() => {
   "
 >
   T-Shirts
+         </Link>
 <Link
   href="/new"
   className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
