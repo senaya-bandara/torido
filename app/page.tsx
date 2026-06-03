@@ -8,7 +8,7 @@ import { PRODUCTS, BEST_SELLERS } from "@/lib/products";
 export default function HomePage() {
 
             const heroImages = [
-  "/hero1.png",
+  "/hero.png",
   "/hero2.png",
   "/hero3.png",
 ];
@@ -50,7 +50,7 @@ useEffect(() => {
   absolute
   inset-0
   transition-opacity
-  duration-1000
+  duration-500
   ${index === currentImage ? "opacity-100" : "opacity-0"}
 `}
     />
