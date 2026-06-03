@@ -140,11 +140,33 @@ useEffect(() => {
   "
 >
   T-Shirts
+<Link
+  href="/new"
+  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
+>
+  New
 </Link>
-      <Link href="/new">New</Link>
-      <Link href="/best sellers">Best Sellers</Link>
-      <Link href="/offers">Offers</Link>
-      <Link href="/faq">FAQ</Link>
+
+<Link
+  href="/best-sellers"
+  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Best Sellers
+</Link>
+
+<Link
+  href="/offers"
+  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Offers
+</Link>
+
+<Link
+  href="/faq"
+  className="relative text-slate-700 hover:text-green-600 transition-colors duration-300 after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full"
+>
+  FAQ
+</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4 ml-auto">
@@ -280,6 +302,21 @@ className="
       {mobileMenuOpen && (
         <div className="md:hidden border-t px-4 py-4 bg-white">
           <div className="flex flex-col gap-4 text-sm font-semibold uppercase">
+            <div className="mb-2">
+  <input
+    value={searchInput}
+    onChange={(e) => setSearchInput(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter" && searchInput.trim()) {
+        window.location.href = `/search?q=${encodeURIComponent(
+          searchInput.trim()
+        )}`;
+      }
+    }}
+    placeholder="Search products..."
+    className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none"
+  />
+</div>
             <Link href="/tshirts" onClick={() => setMobileMenuOpen(false)}>
               T-Shirts
             </Link>
@@ -289,12 +326,25 @@ className="
             <Link href="/best sellers" onClick={() => setMobileMenuOpen(false)}>
               Best Sellers
             </Link>
-            <Link href="/offer" onClick={() => setMobileMenuOpen(false)}>
+           <Link href="/offers" onClick={() => setMobileMenuOpen(false)}>
               Offers
             </Link>
-          <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
-  Cart
+
+            
+        <Link
+  href="/cart"
+  onClick={() => setMobileMenuOpen(false)}
+  className="flex items-center justify-between"
+>
+  <span>Cart</span>
+
+  {cartCount > 0 && (
+    <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">
+      {cartCount}
+    </span>
+  )}
 </Link>
+            
             <Link href="/faq" onClick={() => setMobileMenuOpen(false)}>
               FAQ
             </Link>
