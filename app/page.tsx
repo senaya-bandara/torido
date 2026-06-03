@@ -27,7 +27,17 @@ export default function HomePage() {
     md:object-center
   "
 />
-
+ <div
+    className="
+      absolute
+      inset-0
+      bg-gradient-to-r
+      from-black/35
+      via-black/10
+      to-transparent
+      z-10
+    "
+  />
   <div className="absolute inset-0 bg-black/25" />
      
 
@@ -47,13 +57,26 @@ export default function HomePage() {
           Premium cotton tees for kids.
         </p>
 
-        <Link
-          href="/tshirts"
-          className="inline-block mt-8 bg-white text-black px-8 py-4 rounded-xl font-semibold"
-        >
-          Shop Collection
-        </Link>
-
+      <Link
+  href="/tshirts"
+  className="
+    inline-block
+    mt-8
+    bg-[#7BC043]
+    hover:bg-[#69b035]
+    text-white
+    px-8
+    py-4
+    rounded-xl
+    font-semibold
+    transition-all
+    duration-300
+    shadow-md
+    hover:shadow-lg
+  "
+>
+  Shop Collection
+</Link>
          
 
       </div>
