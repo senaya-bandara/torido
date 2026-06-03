@@ -1,4 +1,4 @@
-
+"use client";
 import PageTransition from "@/app/components/PageTransition";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -49,9 +49,9 @@ useEffect(() => {
         md:object-center
         absolute
         inset-0
-        transition-opacity
+        transition-
         duration-1000
-        ${index === currentImage ? "opacity-100" : "opacity-0"}
+        ${index === currentImage ? "-100" : "-0"}
       `}
     />
   ))}
@@ -198,14 +198,21 @@ useEffect(() => {
       </section>
 
     {/* WHY TORIDO */}
-<section
-  className="relative py-24 bg-cover bg-center"
- style={{
+<section className="relative py-24 overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-center bg-cover opacity-[0.04] blur-sm"
+    style={{
       backgroundImage: "url('/bg.png')",
-      opacity: 0.06,
-      filter: "blur(4px)",
     }}
->
+  />
+
+  {/* White overlay */}
+  <div className="absolute inset-0 bg-white/80" />
+
+  {/* Content */}
+  <div className="relative z-10">
   <div className="max-w-7xl mx-auto px-6">
 
     <div className="text-center mb-16">
