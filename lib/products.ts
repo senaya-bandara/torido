@@ -3,11 +3,23 @@ export const PRODUCTS = [
     id: "tshirt-1",
     name: "Let's Go Boys T-Shirt White",
     price: "LKR 850",
+    colors: [
+    {
+      name: "White",
+      image: "/product9.png",
+    },
+    {
+      name: "Gray",
+      image: "/product4.png",
+    },
+  
+  ],
     image: "/product9.png",
     badge: "COD",
     description: "Soft premium cotton tee designed for everyday play.",
     sizes: ["S", "M", "L"],
   },
+  
   {
     id: "tshirt-2",
     name: "Little Tiger Boys T-Shirt Green" ,
@@ -21,6 +33,22 @@ export const PRODUCTS = [
     id: "tshirt-3",
     name: "Torido Boys T-Shirt Maroon",
     price: "LKR 850",
+    colors: [
+    {
+      name: "Maroon",
+      image: "/product3.png",
+    },
+    {
+      name: "White",
+      image: "/product8.png",
+    },
+
+       {
+      name: "Black",
+      image: "/product7.png",
+    },
+  
+  ],
     image: "/product3.png",
     badge: "COD",
     description: "Comfortable printed tee with a playful unicorn design.",
