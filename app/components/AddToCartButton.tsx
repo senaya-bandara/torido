@@ -28,9 +28,12 @@ export default function AddToCartButton({
         items = cartSnap.data().items || [];
       }
 
-      const existingItem = items.find(
-        (item: any) => item.id === product.id
-      );
+     const existingItem = items.find(
+  (item: any) =>
+    item.id === product.id &&
+    item.selectedColor === product.selectedColor &&
+    item.selectedSize === product.selectedSize
+);
 
       if (existingItem) {
         existingItem.quantity =
