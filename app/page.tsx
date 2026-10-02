@@ -211,58 +211,81 @@ useEffect(() => {
   {/* White overlay */}
   <div className="absolute inset-0 bg-white/80" />
 
-  {/* Content */}
-  <div className="relative z-10">
-  <div className="max-w-7xl mx-auto px-6">
+            {/* Content */}
+<div className="relative z-10">
+  <div className="max-w-7xl mx-auto px-6 py-24">
 
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
         Why Parents Choose Torido
       </h2>
+
       <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
         Premium quality kidswear designed for comfort, durability and everyday adventures.
       </p>
     </div>
 
-    <div className="grid md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3">
+      {/* Soft Cotton */}
+      <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300">
+        <div className="w-10 h-1.5 bg-[#7BC043] rounded-full mb-6"></div>
+
+        <h3 className="text-xl font-bold text-slate-900 mb-3">
           Soft Cotton
         </h3>
-        <p className="text-slate-600">
+
+        <p className="text-slate-600 leading-relaxed">
           Breathable premium cotton that keeps kids comfortable throughout the day.
         </p>
       </div>
 
-      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3">
+      {/* Safe Materials */}
+      <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300">
+        <div className="w-10 h-1.5 bg-[#7BC043] rounded-full mb-6"></div>
+
+        <h3 className="text-xl font-bold text-slate-900 mb-3">
           Safe Materials
         </h3>
-        <p className="text-slate-600">
+
+        <p className="text-slate-600 leading-relaxed">
           Carefully selected fabrics that are gentle on children's skin.
         </p>
       </div>
 
-      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3">
+      {/* Cash On Delivery */}
+      <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300">
+        <div className="w-10 h-1.5 bg-[#7BC043] rounded-full mb-6"></div>
+
+        <h3 className="text-xl font-bold text-slate-900 mb-3">
           Cash On Delivery
         </h3>
-        <p className="text-slate-600">
+
+        <p className="text-slate-600 leading-relaxed">
           Convenient payment option available across Sri Lanka.
         </p>
       </div>
 
-      <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3">
+      {/* Islandwide Delivery */}
+      <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300">
+        <div className="w-10 h-1.5 bg-[#7BC043] rounded-full mb-6"></div>
+
+        <h3 className="text-xl font-bold text-slate-900 mb-3">
           Islandwide Delivery
         </h3>
-        <p className="text-slate-600">
+
+        <p className="text-slate-600 leading-relaxed">
           Reliable delivery service reaching customers nationwide.
         </p>
       </div>
 
     </div>
+  </div>
+</div>
+
+ 
+
+    
  </div>
   </div>
 </section>
@@ -355,7 +378,7 @@ useEffect(() => {
 
     <div>
       <h4 className="font-semibold">
-        Sarah Perera
+        Nethmi Perera
       </h4>
 
       <p className="text-sm text-slate-500">
@@ -387,7 +410,7 @@ useEffect(() => {
 
     <div>
       <h4 className="font-semibold">
-        Sarah Perera
+        Kumudu Senarathna
       </h4>
 
       <p className="text-sm text-slate-500">
@@ -402,8 +425,7 @@ useEffect(() => {
   </div>
 
   <p className="text-slate-600 leading-relaxed">
-    My son absolutely loves these shirts. The fabric is soft,
-    comfortable and still looks new after several washes.
+    The quality is really good for the price. The fabric is soft and my son loves wearing it.
   </p>
 
 </div>
@@ -418,11 +440,11 @@ useEffect(() => {
 
     <div>
       <h4 className="font-semibold">
-        Sarah Perera
+        Dilini Shanika
       </h4>
 
       <p className="text-sm text-slate-500">
-        Colombo
+        Kandy
       </p>
     </div>
 
@@ -433,8 +455,7 @@ useEffect(() => {
   </div>
 
   <p className="text-slate-600 leading-relaxed">
-    My son absolutely loves these shirts. The fabric is soft,
-    comfortable and still looks new after several washes.
+    The material feels comfortable and the stitching is neat. Very happy with the purchase.
   </p>
 
 
