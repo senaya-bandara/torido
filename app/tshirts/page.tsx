@@ -183,37 +183,7 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* PROMOTIONAL BANNER */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-
-        <div className="rounded-[40px] bg-gradient-to-r from-green-600 to-green-500 text-white overflow-hidden">
-
-          <div className="grid md:grid-cols-2 gap-10 items-center p-12">
-
-            <div>
-              <p className="uppercase tracking-widest mb-4">
-                Exclusive Offer
-              </p>
-
-              <h2 className="text-4xl font-bold mb-4">
-                Buy 2 Get 1 Free
-              </h2>
-
-              <p className="text-white/90">
-                Limited time offer on selected Torido collections.
-              </p>
-
-             
-            </div>
-
-           
-
-          </div>
-
-        </div>
-
-      </section>
-
+     
     </motion.main>
     </PageTransition>
 
