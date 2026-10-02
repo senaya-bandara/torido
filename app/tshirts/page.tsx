@@ -206,11 +206,7 @@ useEffect(() => {
              
             </div>
 
-            <div className="text-center text-8xl">
-               <button className="mt-8 bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
-                Shop Offers
-              </button>
-            </div>
+           
 
           </div>
 
