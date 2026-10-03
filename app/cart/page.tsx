@@ -188,71 +188,169 @@ Address:
         <p>Your cart is empty.</p>
       ) : (
         <>
-          <div className="space-y-6">
-            {cart.map((item) => (
-              <div
-                key={item.id}
-                className="flex gap-4 items-center border rounded-2xl p-4"
-              >
-                <div className="relative w-24 h-24">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover rounded-xl"
-                  />
-                </div>
+  <div className="space-y-5">
+  {cart.map((item) => (
+    <div
+      key={item.id}
+      className="
+        group
+        flex
+        gap-5
+        items-center
+        bg-white
+        rounded-3xl
+        p-5
+        border
+        border-slate-100
+        shadow-sm
+        hover:shadow-lg
+        transition-all
+        duration-300
+      "
+    >
+      {/* Product Image */}
+      <div className="relative w-28 h-28 flex-shrink-0 overflow-hidden rounded-2xl bg-slate-50">
+        <Image
+          src={item.image}
+          alt={item.name}
+          fill
+          className="
+            object-cover
+            transition-transform
+            duration-300
+            group-hover:scale-105
+          "
+        />
+      </div>
 
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg">
-                    {item.name}
-                  </h3>
+      {/* Product Details */}
+      <div className="flex-1 min-w-0">
+        <h3 className="font-semibold text-lg text-slate-900">
+          {item.name}
+        </h3>
 
-                  <p className="text-slate-600">
-                    {item.price}
-                  </p>
+        <p className="mt-1 text-[#16A34A] font-semibold">
+          {item.price}
+        </p>
 
-                  <div className="flex gap-3 mt-3 items-center">
-                    <button
-                      onClick={() =>
-                        decreaseQty(item.id)
-                      }
-                      className="w-8 h-8 border rounded-full"
-                    >
-                      -
-                    </button>
+        {/* Quantity */}
+        <div className="flex items-center gap-3 mt-4">
+          <button
+            onClick={() => decreaseQty(item.id)}
+            className="
+              w-8
+              h-8
+              border
+              border-slate-200
+              rounded-full
+              flex
+              items-center
+              justify-center
+              text-slate-700
+              transition-all
+              duration-150
+              hover:bg-slate-100
+              active:scale-90
+            "
+          >
+            −
+          </button>
 
-                    <span className="font-medium">
-                      {item.quantity || 1}
-                    </span>
+          <span className="w-6 text-center font-semibold text-slate-900">
+            {item.quantity || 1}
+          </span>
 
-                    <button
-                      onClick={() =>
-                        increaseQty(item.id)
-                      }
-                      className="w-8 h-8 border rounded-full"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
+          <button
+            onClick={() => increaseQty(item.id)}
+            className="
+              w-8
+              h-8
+              border
+              border-slate-200
+              rounded-full
+              flex
+              items-center
+              justify-center
+              text-slate-700
+              transition-all
+              duration-150
+              hover:bg-slate-100
+              active:scale-90
+            "
+          >
+            +
+          </button>
+        </div>
+      </div>
 
-                <button
-                  onClick={() =>
-                    removeItem(item.id)
-                  }
-                  className="text-red-500 hover:text-red-700"
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
-          </div>
+      {/* Remove */}
+      <button
+        onClick={() => removeItem(item.id)}
+        className="
+          self-start
+          text-sm
+          text-slate-400
+          hover:text-red-500
+          transition-colors
+          duration-200
+        "
+      >
+        Remove
+      </button>
+    </div>
+  ))}
+</div>
 
-          <div className="mt-10">
-            <h2 className="text-3xl font-bold">
-              Total: Rs {total.toLocaleString()}
-            </h2>
+          <div className="mt-10 bg-slate-50 rounded-3xl p-8">
+  <div className="flex items-center justify-between">
+    <span className="text-slate-600 text-lg">
+      Order Total
+    </span>
+
+    <span className="text-3xl font-bold text-slate-900">
+      Rs {total.toLocaleString()}
+    </span>
+  </div>
+
+  <div className="flex gap-4 mt-6 flex-wrap">
+    <button
+      onClick={clearCart}
+      className="
+        px-6
+        py-3
+        rounded-xl
+        bg-red-500
+        text-white
+        hover:bg-red-600
+        transition-all
+        duration-200
+        active:scale-95
+      "
+    >
+      Empty Cart
+    </button>
+
+    <button
+      onClick={requestOrder}
+      className="
+        px-8
+        py-3
+        rounded-xl
+        bg-[#7BC043]
+        text-white
+        font-semibold
+        hover:bg-[#69b035]
+        transition-all
+        duration-200
+        active:scale-95
+        shadow-sm
+        hover:shadow-md
+      "
+    >
+      Request Order
+    </button>
+  </div>
+</div>
 
             <div className="flex gap-4 mt-6 flex-wrap">
               <button
